@@ -29,6 +29,7 @@ SOFTWARE.
 
 /* Includes */
 #include "stm32f4xx.h"
+#include "main.h"
 
 /* Private macro */
 /* Private variables */
@@ -42,9 +43,26 @@ SOFTWARE.
 **
 **===========================================================================
 */
+
+
 int main(void)
 {
   int i = 0;
+  t_baudrate baudrate = 115200;
+  t_ship player = {PLAYER_POSITION_X,PLAYER_POSITION_Y,PLAYER_SHIP,PLAYER_LIFE};
+  t_ship enemy = {ENEMY_POSITION_X,ENEMY_POSITION_Y,ENEMY_SHIP,ENEMY_LIFE};
+
+  /* Initialisation des ennemies */
+  t_ship enemies[55]= {0};
+  init_enenmy(enemies, enemy, 11, 5);
+
+  /* Initialisation du terrain de jeu */
+  t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = {0};
+
+  /* Initialisation de la liaison série*/
+  serial_init(baudrate);
+
+
 
   /**
   *  IMPORTANT NOTE!
@@ -63,4 +81,26 @@ int main(void)
   {
 	i++;
   }
+}
+
+void init_enenmy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line, uint8_t nbr_of_line ){
+	uint8_t count_line;
+	uint8_t	count_enemies;
+	uint8_t total_enemies;
+	total_enemies = 0;
+	enemy.life = 1;
+
+
+	/* 11 ennemies par ligne, il y a 5 lignes */
+	for(count_line=0; count_line<= nbr_of_line-1; count_line++){
+		enemy.pos_x = ENEMY_POSITION_X;
+		for(count_enemies=0; count_enemies<= enemy_in_line-1; count_enemies++){
+			tab_enemies[total_enemies] = enemy;
+			enemy.pos_x += 2;
+			total_enemies += 1;
+		}
+		enemy.pos_y += 2;
+
+	}
+
 }
