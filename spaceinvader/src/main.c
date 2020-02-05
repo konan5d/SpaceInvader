@@ -62,7 +62,13 @@ int main(void)
   /* Initialisation de la liaison série*/
   serial_init(baudrate);
 
+  /* Initialisation VT100 */
+  vt100_clear_screen();
 
+  /* Test d'affichage */
+  playground[player.pos_x][player.pos_y]= player.ship;
+  vt100_move(player.pos_x, player.pos_y);
+  serial_putchar(playground[player.pos_x][player.pos_y]);
 
   /**
   *  IMPORTANT NOTE!
@@ -83,6 +89,7 @@ int main(void)
   }
 }
 
+/* Fonction d'initialisation des vaisseaux ennemies */
 void init_enenmy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line, uint8_t nbr_of_line ){
 	uint8_t count_line;
 	uint8_t	count_enemies;
@@ -90,8 +97,6 @@ void init_enenmy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line, uint8
 	total_enemies = 0;
 	enemy.life = 1;
 
-
-	/* 11 ennemies par ligne, il y a 5 lignes */
 	for(count_line=0; count_line<= nbr_of_line-1; count_line++){
 		enemy.pos_x = ENEMY_POSITION_X;
 		for(count_enemies=0; count_enemies<= enemy_in_line-1; count_enemies++){
