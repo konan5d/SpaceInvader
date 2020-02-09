@@ -30,9 +30,11 @@ typedef struct {
 	t_character pos_y;
 	t_character ship;
 	uint8_t life;
-}t_ship;
+} t_ship;
 
-void init_enenmy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line, uint8_t nbr_of_line );
+void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
+		uint8_t nbr_of_line);
 
+void initPlayground(uint8_t tab_playground[80][24]);
 
 #endif /* MAIN_H_ */
