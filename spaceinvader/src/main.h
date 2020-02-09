@@ -35,6 +35,6 @@ typedef struct {
 void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 		uint8_t nbr_of_line);
 
-void initPlayground(uint8_t tab_playground[80][24]);
+void initPlayground(uint8_t tab_playground[80][24],t_ship *tab_enemies);
 
 #endif /* MAIN_H_ */

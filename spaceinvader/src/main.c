@@ -58,7 +58,7 @@ int main(void) {
 	/* Initialisation des ennemies */
 	t_ship enemies[55] = { 0 };
 	initEnemy(enemies, enemy, 11, 5);
-	initPlayground(playground);
+	initPlayground(playground, enemies);
 
 	/* Initialisation de la liaison série*/
 	serial_init(baudrate);
@@ -93,18 +93,27 @@ int main(void) {
 	}
 }
 
-void initPlayground(
-		uint8_t tab_playground[80][24]) {
-	uint16_t i = 0;
-	int j = 0;
-	uint8_t *p = 0;
+void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
+	/*uint16_t i = 0;
+	uint8_t *p_playground = 0;
 
-	p = (uint8_t*)tab_playground;
+	t_character ship = 0;
+	uint16_t position = 0;
 
-	for(i=0; i<=1919; i++){
-		*(p)= 'A';
-		p++;
+
+	p_playground = (uint8_t*)tab_playground;*/
+
+	/*for(i=0; i<=1919; i++){
+		*(p_playground)= 'A';
+		p_playground++;
+	}*/
+
+	/* Remplissage du terrain de jeu avec les vaisseaux */
+	uint8_t j = 0;
+	for(j=0; j<=53; j++){
+		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] = tab_enemies[j].ship;
 	}
+
 }
 
 /* Fonction d'initialisation des vaisseaux ennemies */
