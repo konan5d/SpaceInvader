@@ -47,6 +47,12 @@
 int main(void) {
 	int i = 0;
 	t_baudrate baudrate = 115200;
+	/* Initialisation de la liaison série*/
+	serial_init(baudrate);
+	/* Initialisation VT100 */
+	vt100_clear_screen();
+
+
 	t_ship player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
 	PLAYER_LIFE };
 	t_ship enemy =
@@ -56,34 +62,14 @@ int main(void) {
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
 
 	/* Initialisation des ennemies */
-	t_ship enemies[55] = { 0 };
-	initEnemy(enemies, enemy, 11, 5);
+	t_ship enemies[165] = { 0 };
+	initEnemy(enemies, enemy, 33, 5);
 	initPlayground(playground, enemies);
-
-	/* Initialisation de la liaison série*/
-	serial_init(baudrate);
-
-	/* Initialisation VT100 */
-	vt100_clear_screen();
 
 	/* Test d'affichage */
 	playground[player.pos_x][player.pos_y] = player.ship;
 	vt100_move(player.pos_x, player.pos_y);
 	serial_putchar(playground[player.pos_x][player.pos_y]);
-
-	vt100_move(3, 3);
-	serial_putchar(playground[3][3]);
-
-	//ma_fonction(&playground);
-	/**
-	 *  IMPORTANT NOTE!
-	 *  The symbol VECT_TAB_SRAM needs to be defined when building the project
-	 *  if code has been located to RAM and interrupts are used.
-	 *  Otherwise the interrupt table located in flash will be used.
-	 *  See also the <system_*.c> file and how the SystemInit() function updates
-	 *  SCB->VTOR register.
-	 *  E.g.  SCB->VTOR = 0x20000000;
-	 */
 
 	/* TODO - Add your application code here */
 
@@ -110,18 +96,22 @@ void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 
 	/* Remplissage du terrain de jeu avec les vaisseaux */
 	uint8_t j = 0;
-	for(j=0; j<=53; j++){
+	for(j=0; j<=164; j++){
 		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] = tab_enemies[j].ship;
+		vt100_move(tab_enemies[j].pos_x,tab_enemies[j].pos_y);
+		serial_putchar(tab_enemies[j].ship);
 	}
 
 }
 
 /* Fonction d'initialisation des vaisseaux ennemies */
 void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
+
 		uint8_t nbr_of_line) {
 	uint8_t count_line;
 	uint8_t count_enemies;
 	uint8_t total_enemies;
+
 	total_enemies = 0;
 
 	for (count_line = 0; count_line <= nbr_of_line - 1; count_line++) {
@@ -141,4 +131,11 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 			tab_playground[y][x] = 'A';
 		}
 	}*/
+}
+
+void initcreen(uint8_t tab_playground[80][24]){
+	uint16_t count_case;
+
+
+
 }

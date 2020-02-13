@@ -13,7 +13,7 @@
 #define PLAYER_SHIP ('M')
 #define PLAYER_LIFE (3)
 
-#define ENEMY_POSITION_X (3)
+#define ENEMY_POSITION_X (9)
 #define ENEMY_POSITION_Y (3)
 #define ENEMY_SHIP ('H')
 #define ENEMY_LIFE (1)
@@ -36,5 +36,7 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 		uint8_t nbr_of_line);
 
 void initPlayground(uint8_t tab_playground[80][24],t_ship *tab_enemies);
+
+void initScreen(uint8_t tab_playground[80][24]);
 
 #endif /* MAIN_H_ */
