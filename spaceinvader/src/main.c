@@ -49,15 +49,21 @@ int main(void) {
 	/* Initialisation des variables */
 	int i = 0;
 	t_character user_input = 0;
+	uint8_t count_enemies = ENEMIES; // Variable pour la fonction MoveEnemies
+	uint8_t move_enemies = FALSE;
+	uint8_t TEST_move_enemies = 0;
+	uint32_t time = 0;
+	uint8_t max = 0;
 
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
+
 	/* Initialisation VT100 */
 	vt100_clear_screen();
 
 	t_ship player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
 	PLAYER_LIFE };
-	t_character playgroundPlayer[80] = { 0 };
+	t_character playgroundPlayer[VT100_SCREEN_WIDTH] = { 0 };
 	playgroundPlayer[player.pos_x] = player.ship;
 
 	t_ship enemy =
@@ -80,19 +86,67 @@ int main(void) {
 
 	/* Infinite loop */
 	while (1) {
+
+		/* Déplacement du joueur */
 		user_input = serial_get_last_char();
 		if (((user_input == 'd') || (user_input == 'D'))
-				&& (player.pos_x != 80)) {
-			player.pos_x = movePlayer(playgroundPlayer, RIGHT, player.pos_x);
+				&& (player.pos_x != VT100_SCREEN_WIDTH)) {
+
+			/* Déplacement joueur */
+			player.pos_x = moveShipLR(playgroundPlayer, RIGHT, player.pos_x);
 			vt100_move(player.pos_x, player.pos_y);
 			serial_putchar(playgroundPlayer[player.pos_x]);
+
+			/* Déplacement des ennemies */
+
+			/* Déplacement des missiles (joueur & ennemies) */
+
 		} else if (((user_input == 'q') || (user_input == 'Q'))
 				&& (player.pos_x != 0)) {
-			player.pos_x =  movePlayer(playgroundPlayer, LEFT, player.pos_x);
+
+			/* Déplacement joueur */
+			player.pos_x = moveShipLR(playgroundPlayer, LEFT, player.pos_x);
 			vt100_move(player.pos_x, player.pos_y);
 			serial_putchar(playgroundPlayer[player.pos_x]);
+			/* Déplacement des ennemies */
+
+			/* Déplacement des missiles (joueur & ennemies) */
+
+		} else if ((user_input == 'z') || (user_input == 'Z')) {
+
+			/* Nothing to do */
+			/* Déplacement des missiles (joueur & ennemies) */
+
+			/* Déplacement des ennemies */
 		}
-		i++;
+
+		/* Déplacement des ennemies */
+		/* Déplacement en x */
+		/* La vitesse dépendra du nombre de vaisseaux restant */
+		/* Prendre en compte la position des vaisseaux les plus au bord pour le déplacement en X (limite) */
+		/* Si le vaisseau n'a plus de vie :
+		 * on supprime le caractere
+		 * on passe au vaisseau suivant
+		 */
+		max = (VT100_SCREEN_WIDTH/2) - ENEMIES_PER_LINE;
+		while (TEST_move_enemies != max) {
+			for (i = 0; i <= count_enemies; i++) {
+				enemies[i].pos_x += 1;
+			}
+			TEST_move_enemies += 1;
+			//delai
+			for (time = 0; time <= 500000; time++);
+			moveEnenies(playground, enemies);
+		}
+		/*while (TEST_move_enemies != 6)
+		for (i = 0; i <= count_enemies; i++) {
+			enemies[i].pos_x -= 1;
+		}
+		TEST_move_enemies += 1;
+		//delai
+		for (time = 0; time <= 500000; time++)
+			;
+		moveEnenies(playground, enemies);*/
 	}
 }
 
@@ -113,7 +167,7 @@ void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 
 	/* Remplissage du terrain de jeu avec les vaisseaux */
 	uint8_t j = 0;
-	for (j = 0; j <= 164; j++) {
+	for (j = 0; j <= ENEMIES - 1; j++) {
 		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
 				tab_enemies[j].ship;
 		vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
@@ -146,15 +200,39 @@ uint8_t nbr_of_line) {
 	}
 }
 
-uint8_t movePlayer(t_character *tab_player, uint8_t way, t_pos old_pos) {
+void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
+	/* Déplacement en x de l'ennemi n */
+
+	/* Quand on arrive au bout de la ligne, déplacement en y de l'ennemi n */
+	/* Remplissage du terrain de jeu avec les vaisseaux */
+	uint8_t j = 0;
+	uint8_t ligne = 0;
+	for (j = 0; j <= ENEMIES - 1; j++) {
+		/* Déplacement du vaisseau */
+		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
+				tab_enemies[j].ship;
+		/* Effacement de la ligne */
+		if (ligne != tab_enemies[j].pos_y) {
+			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
+			vt100_clear_line();
+			ligne = tab_enemies[j].pos_y;
+		}
+
+		vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
+		serial_putchar(tab_enemies[j].ship);
+		ligne = tab_enemies[j].pos_y;
+	}
+}
+
+uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 
 	if (way == LEFT) {
-		tab_player[old_pos - 1] = tab_player[old_pos];
-		tab_player[old_pos] = '\0';
+		tab_ship[old_pos - 1] = tab_ship[old_pos];
+		tab_ship[old_pos] = '\0';
 		old_pos -= 1;
 	} else if (way == RIGHT) {
-		tab_player[old_pos + 1] = tab_player[old_pos];
-		tab_player[old_pos] = '\0';
+		tab_ship[old_pos + 1] = tab_ship[old_pos];
+		tab_ship[old_pos] = '\0';
 		old_pos += 1;
 	}
 	vt100_clear_line();
