@@ -45,16 +45,21 @@
  */
 
 int main(void) {
+	/* INITIALISATION */
+	/* Initialisation des variables */
 	int i = 0;
-	t_baudrate baudrate = 115200;
+	t_character user_input = 0;
+
 	/* Initialisation de la liaison série*/
-	serial_init(baudrate);
+	serial_init(BAUDRATE);
 	/* Initialisation VT100 */
 	vt100_clear_screen();
 
-
 	t_ship player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
 	PLAYER_LIFE };
+	t_character playgroundPlayer[80] = { 0 };
+	playgroundPlayer[player.pos_x] = player.ship;
+
 	t_ship enemy =
 			{ ENEMY_POSITION_X, ENEMY_POSITION_Y, ENEMY_SHIP, ENEMY_LIFE };
 
@@ -62,8 +67,8 @@ int main(void) {
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
 
 	/* Initialisation des ennemies */
-	t_ship enemies[165] = { 0 };
-	initEnemy(enemies, enemy, 33, 5);
+	t_ship enemies[ENEMIES] = { 0 };
+	initEnemy(enemies, enemy, ENEMIES_PER_LINE, ENEMIES_PER_COL);
 	initPlayground(playground, enemies);
 
 	/* Test d'affichage */
@@ -75,30 +80,43 @@ int main(void) {
 
 	/* Infinite loop */
 	while (1) {
+		user_input = serial_get_last_char();
+		if (((user_input == 'd') || (user_input == 'D'))
+				&& (player.pos_x != 80)) {
+			player.pos_x = movePlayer(playgroundPlayer, RIGHT, player.pos_x);
+			vt100_move(player.pos_x, player.pos_y);
+			serial_putchar(playgroundPlayer[player.pos_x]);
+		} else if (((user_input == 'q') || (user_input == 'Q'))
+				&& (player.pos_x != 0)) {
+			player.pos_x =  movePlayer(playgroundPlayer, LEFT, player.pos_x);
+			vt100_move(player.pos_x, player.pos_y);
+			serial_putchar(playgroundPlayer[player.pos_x]);
+		}
 		i++;
 	}
 }
 
 void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 	/*uint16_t i = 0;
-	uint8_t *p_playground = 0;
+	 uint8_t *p_playground = 0;
 
-	t_character ship = 0;
-	uint16_t position = 0;
+	 t_character ship = 0;
+	 uint16_t position = 0;
 
 
-	p_playground = (uint8_t*)tab_playground;*/
+	 p_playground = (uint8_t*)tab_playground;*/
 
 	/*for(i=0; i<=1919; i++){
-		*(p_playground)= 'A';
-		p_playground++;
-	}*/
+	 *(p_playground)= 'A';
+	 p_playground++;
+	 }*/
 
 	/* Remplissage du terrain de jeu avec les vaisseaux */
 	uint8_t j = 0;
-	for(j=0; j<=164; j++){
-		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] = tab_enemies[j].ship;
-		vt100_move(tab_enemies[j].pos_x,tab_enemies[j].pos_y);
+	for (j = 0; j <= 164; j++) {
+		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
+				tab_enemies[j].ship;
+		vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
 		serial_putchar(tab_enemies[j].ship);
 	}
 
@@ -107,7 +125,7 @@ void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 /* Fonction d'initialisation des vaisseaux ennemies */
 void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 
-		uint8_t nbr_of_line) {
+uint8_t nbr_of_line) {
 	uint8_t count_line;
 	uint8_t count_enemies;
 	uint8_t total_enemies;
@@ -126,16 +144,19 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 		enemy.pos_y += 2;
 
 	}
-	/*for (y = 0; y <= 23; y++) {
-		for (x = 0; x <= 79; x++) {
-			tab_playground[y][x] = 'A';
-		}
-	}*/
 }
 
-void initcreen(uint8_t tab_playground[80][24]){
-	uint16_t count_case;
+uint8_t movePlayer(t_character *tab_player, uint8_t way, t_pos old_pos) {
 
-
-
+	if (way == LEFT) {
+		tab_player[old_pos - 1] = tab_player[old_pos];
+		tab_player[old_pos] = '\0';
+		old_pos -= 1;
+	} else if (way == RIGHT) {
+		tab_player[old_pos + 1] = tab_player[old_pos];
+		tab_player[old_pos] = '\0';
+		old_pos += 1;
+	}
+	vt100_clear_line();
+	return old_pos;
 }
