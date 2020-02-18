@@ -40,11 +40,14 @@ typedef struct {
 } t_ship;
 
 enum way {LEFT, RIGHT};
+enum booleen {FALSE, TRUE};
 
 void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 		uint8_t nbr_of_line);
 
 void initPlayground(uint8_t tab_playground[80][24],t_ship *tab_enemies);
 
-uint8_t movePlayer(t_character *tab_player, uint8_t way, t_pos old_pos);
+void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies);
+
+uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
 #endif /* MAIN_H_ */
