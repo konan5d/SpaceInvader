@@ -48,6 +48,7 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 
 void initPlayground(uint8_t tab_playground[80][24],t_ship *tab_enemies);
 
+
 void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies);
 
 uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
