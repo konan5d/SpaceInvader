@@ -54,7 +54,7 @@ int main(void) {
 	uint8_t TEST_move_enemies = 0;
 	uint32_t time = 0;
 	uint8_t max = 0;
-
+	uint8_t min = 0;
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
 
@@ -128,25 +128,32 @@ int main(void) {
 		 * on supprime le caractere
 		 * on passe au vaisseau suivant
 		 */
-		max = (VT100_SCREEN_WIDTH/2) - ENEMIES_PER_LINE;
+		TEST_move_enemies = 0;
+		max = (VT100_SCREEN_WIDTH / 2) - ENEMIES_PER_LINE + min;
 		while (TEST_move_enemies != max) {
 			for (i = 0; i <= count_enemies; i++) {
 				enemies[i].pos_x += 1;
 			}
 			TEST_move_enemies += 1;
 			//delai
-			for (time = 0; time <= 500000; time++);
+			for (time = 0; time <= 500000; time++)
+				;
 			moveEnenies(playground, enemies);
 		}
-		/*while (TEST_move_enemies != 6)
-		for (i = 0; i <= count_enemies; i++) {
-			enemies[i].pos_x -= 1;
+
+		TEST_move_enemies = 0;
+		min = (VT100_SCREEN_WIDTH / 2) - ENEMIES_PER_LINE + max ;
+		while (TEST_move_enemies != min) {
+			for (i = 0; i <= count_enemies; i++) {
+				enemies[i].pos_x -= 1;
+			}
+			TEST_move_enemies += 1;
+			//delai
+			for (time = 0; time <= 500000; time++)
+				;
+			moveEnenies(playground, enemies);
 		}
-		TEST_move_enemies += 1;
-		//delai
-		for (time = 0; time <= 500000; time++)
-			;
-		moveEnenies(playground, enemies);*/
+	qq
 	}
 }
 
