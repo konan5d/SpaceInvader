@@ -30,7 +30,7 @@
 /* Includes */
 #include "stm32f4xx.h"
 #include "main.h"
-
+#include "enemy.h"
 /* Private macro */
 /* Private variables */
 /* Private function prototypes */
@@ -50,7 +50,6 @@ int main(void) {
 	int i = 0;
 	t_character user_input = 0;
 	uint8_t count_enemies = ENEMIES; // Variable pour la fonction MoveEnemies
-	uint8_t move_enemies = FALSE;
 
 	/* Variables : déplacement des vaisseaux ennemies */
 	uint8_t TEST_move_enemies = 0;
@@ -59,6 +58,7 @@ int main(void) {
 	uint8_t min = 0;
 	uint8_t moveY = FALSE;
 	int _i = 0;
+
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
 
@@ -70,8 +70,8 @@ int main(void) {
 	t_character playgroundPlayer[VT100_SCREEN_WIDTH] = { 0 };
 	playgroundPlayer[player.pos_x] = player.ship;
 
-	t_ship enemy =
-			{ ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP, ENEMY_LIFE };
+	t_ship enemy = { ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
+	ENEMY_LIFE };
 
 	/* Initialisation du terrain de jeu */
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
@@ -90,7 +90,6 @@ int main(void) {
 
 	/* Infinite loop */
 	while (1) {
-
 		/* Déplacement du joueur */
 		user_input = serial_get_last_char();
 		if (((user_input == 'd') || (user_input == 'D'))
@@ -124,6 +123,7 @@ int main(void) {
 			/* Déplacement des ennemies */
 		}
 
+		/* ############################################################ */
 		/* Déplacement des ennemies */
 		/* Déplacement en x */
 		/* La vitesse dépendra du nombre de vaisseaux restant */
@@ -133,6 +133,7 @@ int main(void) {
 		 * on passe au vaisseau suivant
 		 */
 		/* DROITE */
+
 		TEST_move_enemies = 0;
 		if (min == 14) {
 			max = min;
@@ -142,10 +143,13 @@ int main(void) {
 		}
 
 		while (TEST_move_enemies != max) {
-			for (i = 0; i <= count_enemies; i++) {
-				enemies[i].pos_x += 1;
+			/*for (i = 0; i <= count_enemies; i++) {
+				moveOneEnemyX(&enemies[i], RIGHT);
+				//enemies[i].pos_x += 1;
 
-			}
+			}*/
+			moveEnemiesX(enemies, RIGHT);
+
 			/* Déplacement en Y */
 			if (moveY == TRUE) {
 				for (_i = 0; _i <= count_enemies; _i++) {
@@ -161,8 +165,8 @@ int main(void) {
 			moveEnenies(playground, enemies);
 		}
 
-		/* DROITE */
- 		TEST_move_enemies = 0;
+		/* GAUCHE */
+		TEST_move_enemies = 0;
 		if (max == 14) {
 			min = max;
 			moveY = TRUE;
@@ -172,7 +176,8 @@ int main(void) {
 
 		while (TEST_move_enemies != min) {
 			for (i = 0; i <= count_enemies; i++) {
-				enemies[i].pos_x -= 1;
+				moveOneEnemyX(&enemies[i], LEFT);
+				//enemies[i].pos_x -= 1;
 			}
 			/* Déplacement en Y */
 			if (moveY == TRUE) {
@@ -187,25 +192,12 @@ int main(void) {
 				;
 			moveEnenies(playground, enemies);
 		}
+		/* ############################################################ */
 	}
+
 }
 
 void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
-	/*uint16_t i = 0;
-	 uint8_t *p_playground = 0;
-
-	 t_character ship = 0;
-	 uint16_t position = 0;
-
-
-	 p_playground = (uint8_t*)tab_playground;*/
-
-	/*for(i=0; i<=1919; i++){
-	 *(p_playground)= 'A';
-	 p_playground++;
-	 }*/
-
-	/* Remplissage du terrain de jeu avec les vaisseaux */
 	uint8_t j = 0;
 	for (j = 0; j <= ENEMIES - 1; j++) {
 		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
@@ -218,8 +210,7 @@ void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 
 /* Fonction d'initialisation des vaisseaux ennemies */
 void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
-
-uint8_t nbr_of_line) {
+		uint8_t nbr_of_line) {
 	uint8_t count_line;
 	uint8_t count_enemies;
 	uint8_t total_enemies;
@@ -228,7 +219,6 @@ uint8_t nbr_of_line) {
 
 	for (count_line = 0; count_line <= nbr_of_line - 1; count_line++) {
 		enemy.pos_x = ENEMY_POSITION_X;
-
 
 		for (count_enemies = 0; count_enemies <= enemy_in_line - 1;
 				count_enemies++) {
@@ -244,6 +234,7 @@ uint8_t nbr_of_line) {
 
 void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 	/* Déplacement en x de l'ennemi n */
+	/* Variables */
 
 	/* Quand on arrive au bout de la ligne, déplacement en y de l'ennemi n */
 	/* Remplissage du terrain de jeu avec les vaisseaux */
@@ -251,16 +242,18 @@ void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 	uint8_t ligne = 0;
 	for (j = 0; j <= ENEMIES - 1; j++) {
 		/* Déplacement du vaisseau */
-		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
-				tab_enemies[j].ship;
+		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] = tab_enemies[j].ship;
+
 		/* Effacement de la ligne */
-		if ((ligne != tab_enemies[j].pos_y) && ((tab_enemies[j].pos_y) == (tab_enemies[j].new_pos_y)))  {
+		if ((ligne != tab_enemies[j].pos_y)
+				&& ((tab_enemies[j].pos_y) == (tab_enemies[j].new_pos_y))) {
 			/* On passe au vaisseau suivant */
 			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
 			vt100_clear_line();
 
 			ligne = tab_enemies[j].pos_y;
-		} else if ((ligne != tab_enemies[j].pos_y) && ((tab_enemies[j].pos_y) != (tab_enemies[j].new_pos_y))){
+		} else if ((ligne != tab_enemies[j].pos_y)
+				&& ((tab_enemies[j].pos_y) != (tab_enemies[j].new_pos_y))) {
 			/* On efface la ligne précédente avant de passer à la suivante */
 			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
 			vt100_clear_line();
