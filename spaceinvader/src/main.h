@@ -35,6 +35,7 @@ typedef uint8_t t_pos;
 typedef struct {
 	t_character pos_x;
 	t_character pos_y;
+	t_character new_pos_y;
 	t_character ship;
 	uint8_t life;
 } t_ship;
