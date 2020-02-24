@@ -59,6 +59,8 @@ int main(void) {
 	uint8_t moveY = FALSE;
 	int _i = 0;
 
+	uint8_t dir = RIGHT;
+
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
 
@@ -98,6 +100,7 @@ int main(void) {
 			/* Déplacement joueur */
 			player.pos_x = moveShipLR(playgroundPlayer, RIGHT, player.pos_x);
 			vt100_move(player.pos_x, player.pos_y);
+			vt100_clear_line();
 			serial_putchar(playgroundPlayer[player.pos_x]);
 
 			/* Déplacement des ennemies */
@@ -110,6 +113,7 @@ int main(void) {
 			/* Déplacement joueur */
 			player.pos_x = moveShipLR(playgroundPlayer, LEFT, player.pos_x);
 			vt100_move(player.pos_x, player.pos_y);
+			vt100_clear_line();
 			serial_putchar(playgroundPlayer[player.pos_x]);
 			/* Déplacement des ennemies */
 
@@ -122,8 +126,11 @@ int main(void) {
 
 			/* Déplacement des ennemies */
 		}
+		dir = displayEnemies(enemies, dir);
+		displayEnemiesOnPlayground(playground, enemies);
+		for (time = 0; time <= 500000; time++);
 
-		/* ############################################################ */
+		/* ############################RIGHT################################ */
 		/* Déplacement des ennemies */
 		/* Déplacement en x */
 		/* La vitesse dépendra du nombre de vaisseaux restant */
@@ -134,7 +141,7 @@ int main(void) {
 		 */
 		/* DROITE */
 
-		TEST_move_enemies = 0;
+		/*TEST_move_enemies = 0;
 		if (min == 14) {
 			max = min;
 			moveY = TRUE;
@@ -143,17 +150,12 @@ int main(void) {
 		}
 
 		while (TEST_move_enemies != max) {
-			/*for (i = 0; i <= count_enemies; i++) {
-				moveOneEnemyX(&enemies[i], RIGHT);
-				//enemies[i].pos_x += 1;
-
-			}*/
 			moveEnemiesX(enemies, RIGHT);
 
-			/* Déplacement en Y */
+			// Déplacement en Y
 			if (moveY == TRUE) {
 				for (_i = 0; _i <= count_enemies; _i++) {
-					enemies[_i].new_pos_y += 1;
+					moveOneEnemyY(&enemies[_i]);
 				}
 				moveY = FALSE;
 			}
@@ -162,10 +164,10 @@ int main(void) {
 			//delai
 			for (time = 0; time <= 500000; time++)
 				;
-			moveEnenies(playground, enemies);
+			displayEnemiesOnPlayground(playground, enemies);
 		}
 
-		/* GAUCHE */
+		// GAUCHE
 		TEST_move_enemies = 0;
 		if (max == 14) {
 			min = max;
@@ -175,11 +177,8 @@ int main(void) {
 		}
 
 		while (TEST_move_enemies != min) {
-			for (i = 0; i <= count_enemies; i++) {
-				moveOneEnemyX(&enemies[i], LEFT);
-				//enemies[i].pos_x -= 1;
-			}
-			/* Déplacement en Y */
+			moveEnemiesX(enemies, LEFT);
+			// Déplacement en Y
 			if (moveY == TRUE) {
 				for (_i = 0; _i <= count_enemies; _i++) {
 					enemies[_i].new_pos_y += 1;
@@ -190,9 +189,9 @@ int main(void) {
 			//delai
 			for (time = 0; time <= 500000; time++)
 				;
-			moveEnenies(playground, enemies);
-		}
-		/* ############################################################ */
+			displayEnemiesOnPlayground(playground, enemies);
+		}*/
+
 	}
 
 }
@@ -232,7 +231,7 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 	}
 }
 
-void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
+void displayEnemiesOnPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 	/* Déplacement en x de l'ennemi n */
 	/* Variables */
 
@@ -247,11 +246,13 @@ void moveEnenies(uint8_t tab_playground[80][24], t_ship *tab_enemies) {
 		/* Effacement de la ligne */
 		if ((ligne != tab_enemies[j].pos_y)
 				&& ((tab_enemies[j].pos_y) == (tab_enemies[j].new_pos_y))) {
+
 			/* On passe au vaisseau suivant */
 			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
 			vt100_clear_line();
 
 			ligne = tab_enemies[j].pos_y;
+
 		} else if ((ligne != tab_enemies[j].pos_y)
 				&& ((tab_enemies[j].pos_y) != (tab_enemies[j].new_pos_y))) {
 			/* On efface la ligne précédente avant de passer à la suivante */
