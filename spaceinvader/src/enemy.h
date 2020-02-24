@@ -29,4 +29,6 @@ void moveOneEnemyY(t_ship *enemy);
 
 void moveEnemiesX(t_ship *enemy, uint8_t direction);
 
+uint8_t displayEnemies(t_ship *enemy, uint8_t directionX) ;
+
 #endif /* ENEMY_H_ */
