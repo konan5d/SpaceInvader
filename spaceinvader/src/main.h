@@ -70,7 +70,9 @@ void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies);
 void displayEnemiesOnPlayground(uint8_t tab_playground[80][24],
 		t_ship *tab_enemies);
 
-void delay(uint32_t time);
-
 uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
+
+void moveRocket(t_rocket *rocket, uint8_t *shoot);
+
+void delay(uint32_t time);
 #endif /* MAIN_H_ */
