@@ -160,11 +160,14 @@ int main(void) {
 
 			/* Déplacement des missiles */
 			moveRocket(&player_rocket, &tire_player); // rocket joueur
+			isEnemyShoot(enemies, &player_rocket, &tire_player);
 
 			/* Déplacement des ennemies */
 			dir = displayEnemies(enemies, dir);
 			displayEnemiesOnPlayground(playground, enemies);
 			delay(time);
+
+			isEnemyShoot(enemies, &player_rocket, &tire_player);
 		}
 		/* GAME OVER */
 	}
@@ -266,7 +269,7 @@ uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 
 void moveRocket(t_rocket *rocket, uint8_t *shoot) {
 	if (*shoot == TRUE) {
-		/* Suppression de la rocket */
+		/* Suppression de la rocket précédente */
 		vt100_move(rocket->old_pos_x, rocket->old_pos_y);
 		serial_putchar(0x20);
 
@@ -292,6 +295,23 @@ void moveRocket(t_rocket *rocket, uint8_t *shoot) {
 		*shoot = FALSE;
 	}
 }
+
+void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
+	uint8_t count_enemies = 0;
+	if (*shoot == TRUE) {
+		for (count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
+			if ((tab_enemies[count_enemies].pos_x == rocket->pos_x)
+					&& (tab_enemies[count_enemies].pos_y == rocket->pos_y)) {
+				tab_enemies[count_enemies].life = 0;
+				tab_enemies[count_enemies].ship = 0x20;
+				*shoot = FALSE;
+
+			}
+		}
+	}
+
+}
+
 void delay(uint32_t time) {
 	uint32_t i;
 	for (i = 0; i <= time; i++)
