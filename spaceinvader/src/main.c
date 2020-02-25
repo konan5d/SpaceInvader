@@ -83,7 +83,7 @@ int main(void) {
 	t_ship enemy = { ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
 	ENEMY_LIFE };
 
-	t_rocket player_rocket = { 0, 0, '|' };
+	t_rocket player_rocket = { 0, 0, 0, 0, '|' };
 
 	/* Initialisation du terrain de jeu */
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
@@ -160,7 +160,6 @@ int main(void) {
 
 			/* Déplacement des missiles */
 			moveRocket(&player_rocket, &tire_player); // rocket joueur
-
 
 			/* Déplacement des ennemies */
 			dir = displayEnemies(enemies, dir);
@@ -267,13 +266,25 @@ uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 
 void moveRocket(t_rocket *rocket, uint8_t *shoot) {
 	if (*shoot == TRUE) {
+		/* Suppression de la rocket */
+		vt100_move(rocket->old_pos_x, rocket->old_pos_y);
+		serial_putchar(0x20);
+
+		/* Affichage de la rocket */
 		vt100_move(rocket->pos_x, rocket->pos_y);
 		serial_putchar(rocket->rocket);
+
+		/* On sauvgarde l'ancienne position de la rocket */
+		rocket->old_pos_x = rocket->pos_x;
+		rocket->old_pos_y = rocket->pos_y;
+
 		rocket->pos_y -= 1;
-		vt100_move(rocket->pos_x, rocket->pos_y+2);
-		serial_putchar(0x20);
+
 		if (rocket->pos_y == 0) {
+			vt100_move(rocket->old_pos_x, rocket->old_pos_y);
+			serial_putchar(0x20);
 			*shoot = FALSE;
+
 		} else {
 			*shoot = TRUE;
 		}
