@@ -300,12 +300,16 @@ void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
 	uint8_t count_enemies = 0;
 	if (*shoot == TRUE) {
 		for (count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
-			if ((tab_enemies[count_enemies].pos_x == rocket->pos_x)
-					&& (tab_enemies[count_enemies].pos_y == rocket->pos_y)) {
-				tab_enemies[count_enemies].life = 0;
-				tab_enemies[count_enemies].ship = 0x20;
-				*shoot = FALSE;
+			if (tab_enemies[count_enemies].life == 1) {
+				if ((tab_enemies[count_enemies].pos_x == rocket->pos_x)
+						&& (tab_enemies[count_enemies].pos_y == rocket->pos_y)) {
+					tab_enemies[count_enemies].life = 0;
+					tab_enemies[count_enemies].ship = 0x20;
+					*shoot = FALSE;
 
+				}
+			} else {
+				count_enemies += 1;
 			}
 		}
 	}
