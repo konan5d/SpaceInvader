@@ -65,7 +65,6 @@ int main(void) {
 	/* Variables : missiles */
 	uint8_t tire_player = FALSE;
 
-
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
 
@@ -74,7 +73,8 @@ int main(void) {
 
 	/* Déclaration du joueur / des ennemies / du terrain de jeu / missile */
 
-	t_player player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP, PLAYER_SCORE,
+	t_player player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
+	PLAYER_SCORE,
 	PLAYER_LIFE };
 
 	t_character playgroundPlayer[VT100_SCREEN_WIDTH] = { 0 };
@@ -83,7 +83,7 @@ int main(void) {
 	t_ship enemy = { ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
 	ENEMY_LIFE };
 
-	t_rocket player_rocket = {0,0,'|'};
+	t_rocket player_rocket = { 0, 0, '|' };
 
 	/* Initialisation du terrain de jeu */
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
@@ -98,23 +98,23 @@ int main(void) {
 	vt100_move(player.pos_x, player.pos_y);
 	serial_putchar(playground[player.pos_x][player.pos_y]);
 
-
 	/* TODO - Add your application code here */
 
 	/* Infinite loop */
 	while (1) {
 		/* Initialisation du jeu */
 
-		while ((enemies[ENEMIES-1].new_pos_y != PLAYER_POSITION_Y-1) || (player.life == 0)) {
+		while ((enemies[ENEMIES - 1].new_pos_y != PLAYER_POSITION_Y - 1)
+				|| (player.life == 0)) {
 			/* Affichae du :
-				 * - score
-				 * - nombre de vies du joueur
-				 */
+			 * - score
+			 * - nombre de vies du joueur
+			 */
 
-			vt100_move(1,1);
+			vt100_move(1, 1);
 			serial_puts(txt_score);
 			serial_putchar(player.score);
-			vt100_move(1,24);
+			vt100_move(1, 24);
 			serial_puts(txt_life);
 			serial_putchar(player.life);
 
@@ -146,26 +146,21 @@ int main(void) {
 
 					/* Déplacement des missiles (joueur & ennemies) */
 
-				} else if (((user_input == 'z') || (user_input == 'Z')) && (tire_player == FALSE)) {
+				} else if (((user_input == 'z') || (user_input == 'Z'))
+						&& (tire_player == FALSE)) {
 
 					/* Nothing to do */
 					/* Déplacement des missiles (joueur & ennemies) */
 					player_rocket.pos_x = player.pos_x;
-					player_rocket.pos_y = player.pos_y-1;
+					player_rocket.pos_y = player.pos_y - 1;
 					tire_player = TRUE;
 				}
 
 			}
 
 			/* Déplacement des missiles */
-			if (tire_player == TRUE){
-				vt100_move(player_rocket.pos_x, player_rocket.pos_y);
-				serial_putchar(player_rocket.rocket);
-				player_rocket.pos_y -=1;
-				if(player_rocket.pos_y == 0){
-					tire_player = FALSE;
-				}
-			}
+			moveRocket(&player_rocket, &tire_player); // rocket joueur
+
 
 			/* Déplacement des ennemies */
 			dir = displayEnemies(enemies, dir);
@@ -270,9 +265,22 @@ uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 	return old_pos;
 }
 
-/*void movePlayerRocket(t_player *tab_ship, ){
-
-}*/
+void moveRocket(t_rocket *rocket, uint8_t *shoot) {
+	if (*shoot == TRUE) {
+		vt100_move(rocket->pos_x, rocket->pos_y);
+		serial_putchar(rocket->rocket);
+		rocket->pos_y -= 1;
+		vt100_move(rocket->pos_x, rocket->pos_y+2);
+		serial_putchar(0x20);
+		if (rocket->pos_y == 0) {
+			*shoot = FALSE;
+		} else {
+			*shoot = TRUE;
+		}
+	} else {
+		*shoot = FALSE;
+	}
+}
 void delay(uint32_t time) {
 	uint32_t i;
 	for (i = 0; i <= time; i++)
