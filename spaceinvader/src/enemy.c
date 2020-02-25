@@ -28,27 +28,25 @@ void moveEnemiesX(t_ship *enemy, uint8_t direction) {
 	}
 }
 
-uint8_t displayEnemies(t_ship *enemy, uint8_t directionX) {
+void displayEnemies(t_ship *enemy, uint8_t *directionX) {
 	uint8_t count_enemies = ENEMIES;
 	uint8_t i;
-	moveEnemiesX(enemy, directionX);
+	moveEnemiesX(enemy, *directionX);
 
-	if ((enemy[ENEMIES - 1].pos_x == VT100_SCREEN_WIDTH) && (directionX == RIGHT)) {
-		directionX = LEFT;
+	if ((enemy[ENEMIES - 1].pos_x == VT100_SCREEN_WIDTH) && (*directionX == RIGHT)) {
+		*directionX = LEFT;
 		/* Déplacement en Y */
 		for (i = 0; i <= count_enemies; i++) {
 			moveOneEnemyY(&enemy[i]);
 		}
 
-	} else if ((enemy[0].pos_x == 1) && (directionX == LEFT)){
-		directionX = RIGHT;
+	} else if ((enemy[0].pos_x == 1) && (*directionX == LEFT)){
+		*directionX = RIGHT;
 		/* Déplacement en Y */
 		for (i = 0; i <= count_enemies; i++) {
 			moveOneEnemyY(&enemy[i]);
 		}
 	}
-
-	return directionX;
 }
 
 /*
