@@ -1,7 +1,8 @@
 # Space Invader 
 
 ## Tâches en cours :
-
+- Les ennemis peuvent tirer :
+    - Génération aléatoire des missiles 
 
 ## Tâches terminées :
 - Déplacement du joueur
@@ -12,13 +13,13 @@
 
 
 ## Tâches à faire :
-- Les ennemis peuvent tirer :
-    - Génération aléatoire des missiles 
-
 - Le joueur peut perdre une vie quand il est touché
 - Le joueur peut perdre la partie s'il n'a plus de vie
 - Affichage du score (dynamique)
 - Affichage du nombre de vies (dynamique)
 - Affichage du menu
 - Affichage de game win / over
-- Génération d'un ennemi aléatoire 
+
+- **Optional** : Génération d'un ennemi aléatoire 
+- **Refact** : Utiliser la fonction timer du µC
+- **Refact** : Déplacement des vaisseaux enemis
