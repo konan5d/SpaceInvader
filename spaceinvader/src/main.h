@@ -11,8 +11,8 @@
 #define PLAYER_POSITION_X (40)
 #define PLAYER_POSITION_Y (22)
 #define PLAYER_SHIP ('M')
-#define PLAYER_SCORE (0)
-#define PLAYER_LIFE (3)
+#define PLAYER_SCORE ('0')
+#define PLAYER_LIFE ('3')
 
 #define ENEMY_POSITION_X (19)
 #define ENEMY_POSITION_Y (3)
@@ -48,6 +48,12 @@ typedef struct {
 	uint16_t score;
 	uint8_t life;
 } t_player;
+
+typedef struct {
+	t_character pos_x;
+	t_character pos_y;
+	t_character rocket;
+}t_rocket;
 
 enum way {
 	LEFT, RIGHT
