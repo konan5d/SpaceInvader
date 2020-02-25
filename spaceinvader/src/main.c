@@ -55,12 +55,15 @@ int main(void) {
 	uint8_t dir = RIGHT;
 
 	/* Variables : temps */
-	uint16_t time_player = 1000;
-	uint32_t time = 50000;
+	uint16_t time_player = 50000;
+	uint32_t time = 100000;
 
 	/* Variables : texte */
 	t_character txt_score[] = "SCORE : ";
 	t_character txt_life[] = "NOMBRE DE VIES : ";
+
+	/* Variables : missiles */
+	uint8_t tire_player = FALSE;
 
 
 	/* Initialisation de la liaison série*/
@@ -69,7 +72,7 @@ int main(void) {
 	/* Initialisation VT100 */
 	vt100_clear_screen();
 
-	/* Déclaration du joueur / des ennemies / du terrain de jeu */
+	/* Déclaration du joueur / des ennemies / du terrain de jeu / missile */
 
 	t_player player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP, PLAYER_SCORE,
 	PLAYER_LIFE };
@@ -79,6 +82,8 @@ int main(void) {
 
 	t_ship enemy = { ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
 	ENEMY_LIFE };
+
+	t_rocket player_rocket = {0,0,'|'};
 
 	/* Initialisation du terrain de jeu */
 	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] = { 0 }; /* 80 x 24 */
@@ -108,8 +113,10 @@ int main(void) {
 
 			vt100_move(1,1);
 			serial_puts(txt_score);
+			serial_putchar(player.score);
 			vt100_move(1,24);
 			serial_puts(txt_life);
+			serial_putchar(player.life);
 
 			/* Déplacement du joueur */
 			for (i = 0; i <= time_player; i++) {
@@ -139,13 +146,25 @@ int main(void) {
 
 					/* Déplacement des missiles (joueur & ennemies) */
 
-				} else if ((user_input == 'z') || (user_input == 'Z')) {
+				} else if (((user_input == 'z') || (user_input == 'Z')) && (tire_player == FALSE)) {
 
 					/* Nothing to do */
 					/* Déplacement des missiles (joueur & ennemies) */
-
+					player_rocket.pos_x = player.pos_x;
+					player_rocket.pos_y = player.pos_y-1;
+					tire_player = TRUE;
 				}
 
+			}
+
+			/* Déplacement des missiles */
+			if (tire_player == TRUE){
+				vt100_move(player_rocket.pos_x, player_rocket.pos_y);
+				serial_putchar(player_rocket.rocket);
+				player_rocket.pos_y -=1;
+				if(player_rocket.pos_y == 0){
+					tire_player = FALSE;
+				}
 			}
 
 			/* Déplacement des ennemies */
@@ -251,6 +270,9 @@ uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 	return old_pos;
 }
 
+/*void movePlayerRocket(t_player *tab_ship, ){
+
+}*/
 void delay(uint32_t time) {
 	uint32_t i;
 	for (i = 0; i <= time; i++)
