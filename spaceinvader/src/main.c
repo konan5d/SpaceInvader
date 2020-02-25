@@ -55,7 +55,7 @@ int main(void) {
 	uint8_t dir = RIGHT;
 
 	/* Variables : temps */
-	uint16_t time_player = 50000;
+	uint32_t time_player = 100000;
 	uint32_t time = 100000;
 
 	/* Variables : texte */
@@ -160,10 +160,11 @@ int main(void) {
 
 			/* Déplacement des missiles */
 			moveRocket(&player_rocket, &tire_player); // rocket joueur
+
 			isEnemyShoot(enemies, &player_rocket, &tire_player);
 
 			/* Déplacement des ennemies */
-			dir = displayEnemies(enemies, dir);
+			displayEnemies(enemies, &dir);
 			displayEnemiesOnPlayground(playground, enemies);
 			delay(time);
 
@@ -300,15 +301,24 @@ void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
 	uint8_t count_enemies = 0;
 	if (*shoot == TRUE) {
 		for (count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
+			/* Si l'ennemi est en vie */
 			if (tab_enemies[count_enemies].life == 1) {
+				/* Si la position de la rocket et de l'ennemi sont égales, alors on tue l'ennemi */
 				if ((tab_enemies[count_enemies].pos_x == rocket->pos_x)
 						&& (tab_enemies[count_enemies].pos_y == rocket->pos_y)) {
+					/* On fait disparaitre l'ennemi */
 					tab_enemies[count_enemies].life = 0;
 					tab_enemies[count_enemies].ship = 0x20;
+					/* Ajouter un délai */
+					vt100_move(rocket->old_pos_x, rocket->old_pos_y);
+					serial_putchar(0x20);
+
 					*shoot = FALSE;
 
 				}
+
 			} else {
+				/* Sinon on passe à l'ennemi suivant */
 				count_enemies += 1;
 			}
 		}
