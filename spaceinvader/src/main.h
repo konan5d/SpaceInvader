@@ -52,6 +52,8 @@ typedef struct {
 typedef struct {
 	t_character pos_x;
 	t_character pos_y;
+	t_character old_pos_x;
+	t_character old_pos_y;
 	t_character rocket;
 }t_rocket;
 
