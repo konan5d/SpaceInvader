@@ -65,7 +65,7 @@ int main(void) {
 	uint32_t time = 25000;
 
 	/* TEST */
-	uint8_t compteur = 0;
+	uint8_t compteur=0;
 	uint8_t var_shooted = 0;
 
 	/* Variables : texte */
@@ -178,18 +178,12 @@ int main(void) {
 
 			var_shooted = isEnemyHit(enemies, &player_rocket, &tire_player);
 			/* Déplacement des ennemies */
-			if (var_shooted == 1) {
+			if(var_shooted == 1){
 				displayEnemiesOnPlayground(playground, enemies);
-				var_shooted = 0;
 			}
+			var_shooted = 0;
 
-			if (compteur == 10) {
-				var_shooted = isEnemyHit(enemies, &player_rocket, &tire_player);
-				/* Déplacement des ennemies */
-				if (var_shooted == 1) {
-					displayEnemiesOnPlayground(playground, enemies);
-					var_shooted = 0;
-				}
+			if(compteur == 10){
 				displayEnemies(enemies, &dir);
 				displayEnemiesOnPlayground(playground, enemies);
 				compteur = 0;
@@ -298,7 +292,7 @@ uint8_t moveShipLR(t_character *tab_ship, uint8_t way, t_pos old_pos) {
 }
 
 void moveRocket(t_rocket *rocket, uint8_t *shoot) {
-	if ((*shoot == TRUE) && (rocket->pos_y != 1)) {
+	if (*shoot == TRUE) {
 		/* Suppression de la rocket précédente */
 		vt100_move(rocket->old_pos_x, rocket->old_pos_y);
 		serial_putchar(0x20);
@@ -313,47 +307,24 @@ void moveRocket(t_rocket *rocket, uint8_t *shoot) {
 
 		rocket->pos_y -= 1;
 
+		if (rocket->pos_y == 0) {
+			vt100_move(rocket->old_pos_x, rocket->old_pos_y);
+			serial_putchar(0x20);
+			*shoot = FALSE;
+
+		} else {
+			*shoot = TRUE;
+		}
 	} else {
-		vt100_move(rocket->old_pos_x, rocket->old_pos_y);
-		serial_putchar(0x20);
 		*shoot = FALSE;
 	}
 }
 
-/*uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
-	uint8_t shooted = FALSE;
-	if (*shoot == TRUE) {
-		for (uint8_t count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
-			// Si l'ennemi est en vie
-			if (tab_enemies[count_enemies].life == 1) {
-				// Si la position de la rocket et de l'ennemi sont égales, alors on tue l'ennemi
-				if ((tab_enemies[count_enemies].pos_x == rocket->pos_x)
-						&& (tab_enemies[count_enemies].pos_y == rocket->pos_y)) {
-					// On fait disparaitre l'ennemi
-					tab_enemies[count_enemies].life = 0;
-					tab_enemies[count_enemies].ship = 0x20;
-					// Ajouter un délai
-					vt100_move(rocket->old_pos_x, rocket->old_pos_y);
-					serial_putchar(0x20);
-
-					*shoot = FALSE;
-					shooted = 1;
-				}
-
-			} else {
-				// Sinon on passe à l'ennemi suivant
-				count_enemies += 1;
-				shooted = 0;
-			}
-		}
-	}
-	return shooted;
-}*/
-
 uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
-	uint8_t shooted = 0;
-	if (*shoot == TRUE) {
-		for (uint8_t count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
+	uint8_t count_enemies = 0;
+	uint8_t shooted = FALSE;
+	if(*shoot == TRUE){
+		for (count_enemies = 0; count_enemies <= ENEMIES - 1; count_enemies++) {
 			/* Si l'ennemi est en vie */
 			if (tab_enemies[count_enemies].life == 1) {
 				/* Si la position de la rocket et de l'ennemi sont égales, alors on tue l'ennemi */
@@ -368,12 +339,11 @@ uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot) {
 
 					*shoot = FALSE;
 					shooted = 1;
-					return shooted;
 				}
 
 			} else {
 				/* Sinon on passe à l'ennemi suivant */
-				//count_enemies += 1;
+				count_enemies += 1;
 				shooted = 0;
 			}
 		}
