@@ -76,7 +76,7 @@ uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
 
 void moveRocket(t_rocket *rocket, uint8_t *shoot);
 
-void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
+uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
 
 void delay(uint32_t time);
 #endif /* MAIN_H_ */
