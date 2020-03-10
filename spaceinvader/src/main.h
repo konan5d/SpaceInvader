@@ -54,7 +54,7 @@ typedef struct {
 	t_character pos_y;
 	t_character old_pos_x;
 	t_character old_pos_y;
-	t_character rocket;
+	const t_character rocket;
 }t_rocket;
 
 enum way {
@@ -74,9 +74,9 @@ void displayEnemiesOnPlayground(uint8_t tab_playground[80][24],
 
 uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
 
-void moveRocket(t_rocket *rocket, uint8_t *shoot);
+void movePlayerRocket(t_rocket *rocket, uint8_t *shoot);
 
-void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
+uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
 
 void delay(uint32_t time);
 #endif /* MAIN_H_ */
