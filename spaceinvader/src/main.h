@@ -74,5 +74,9 @@ void displayEnemiesOnPlayground(uint8_t tab_playground[80][24],
 
 uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
 
+uint8_t random(uint8_t value, uint8_t a, uint8_t b, uint8_t m);
+
+uint8_t random_enemy_rocket(void);
+
 void delay(uint32_t time);
 #endif /* MAIN_H_ */

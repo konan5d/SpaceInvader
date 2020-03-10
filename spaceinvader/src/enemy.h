@@ -31,4 +31,9 @@ void moveEnemiesX(t_ship *enemy, uint8_t direction);
 
 void displayEnemies(t_ship *enemy, uint8_t *directionX) ;
 
+void moveEnemiesRocket(t_rocket *rocket, uint8_t *shoot);
+
+void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
+		uint8_t nbr_of_line);
+
 #endif /* ENEMY_H_ */
