@@ -36,6 +36,7 @@
 #include "main.h"
 #include "enemy.h"
 #include "player.h"
+#include "ui.h"
 /* Private macro */
 /* Private variables */
 /* Private function prototypes */
@@ -69,7 +70,7 @@ int main(void) {
 	uint8_t var_shooted = 0;
 
 	/* Variables : texte */
-	t_character txt_score[] = "SCORE : ";
+	t_character txt_score[] = "SCORE :";
 	t_character txt_life[] = "NOMBRE DE VIES : ";
 
 	/* Variables : missiles */
@@ -87,6 +88,8 @@ int main(void) {
 
 	t_player player = { PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
 	PLAYER_SCORE, PLAYER_LIFE };
+
+
 
 	t_character playgroundPlayer[VT100_SCREEN_WIDTH] = { 0 };
 	playgroundPlayer[player.pos_x] = player.ship;
@@ -108,6 +111,8 @@ int main(void) {
 	initEnemy(enemies, enemy, ENEMIES_PER_LINE, ENEMIES_PER_COL);
 	initPlayground(playground, enemies);
 
+	t_score toto = {.d='0', .c='0', .m='0'};
+
 	/* Initialisation du joueur */
 	playground[player.pos_x][player.pos_y] = player.ship;
 	vt100_move(player.pos_x, player.pos_y);
@@ -118,6 +123,7 @@ int main(void) {
 	/* Infinite loop */
 	while (1) {
 		/* Initialisation du jeu */
+		displayScore(&player, &toto);
 
 		while ((enemies[ENEMIES - 1].new_pos_y != PLAYER_POSITION_Y - 1)
 				|| (player.life == 0)) {
@@ -127,7 +133,7 @@ int main(void) {
 			 */
 			vt100_move(1, 1);
 			serial_puts(txt_score);
-			serial_putchar(player.score);
+			//serial_putchar(player.score);
 			vt100_move(1, 24);
 			serial_puts(txt_life);
 			serial_putchar(player.life);
@@ -188,6 +194,8 @@ int main(void) {
 			/* Déplacement des ennemies */
 			if (var_shooted == 1) {
 				displayEnemiesOnPlayground(playground, enemies);
+				changeScore(&player, &toto);
+				displayScore(&player, &toto);
 			}
 			var_shooted = 0;
 			if ((compteur == 10) && (rocket_enemy == FALSE)){
