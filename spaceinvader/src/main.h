@@ -46,7 +46,7 @@ typedef struct {
 	t_character pos_x;
 	t_character pos_y;
 	t_character ship;
-	uint16_t score;
+	uint8_t score;
 	uint8_t life;
 } t_player;
 
@@ -57,6 +57,14 @@ typedef struct {
 	t_character old_pos_y;
 	const t_character rocket;
 }t_rocket;
+
+
+typedef struct {
+	uint8_t d;
+	uint8_t c;
+	uint8_t m;
+} t_score;
+
 
 enum way {
 	LEFT, RIGHT
