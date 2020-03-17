@@ -14,7 +14,7 @@ Carte de développement utilisée : *STM32 Nucleo F491ZI*
 
 ## 1. Présentation du projet
 
-Dans le cadre de la formation, nous devons programmer le jeu Space Invader, en langage C. 
+Dans le cadre de la formation, nous devons programmer le jeu Space Invaders, en langage C. 
 
 Nous utilisons une carte de développement embarquée, afin de réaliser le traitement et le calcul des données.
 
@@ -52,6 +52,42 @@ Le joueur dispose de 3 touches pour jouer :
 * **Z** pour tirer 
 
 ## 3. Les 3 plus grandes difficultées rencontrées dans le projet
+
+### a. Gérer le déplacement horizontal des ennemis :
+
+* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : non résolu
+
+### b. Gérer le tir des ennemis :
+
+Tout d'abord, il faut générer un nombre, de façon aléatoire, pour générer un missile.
+
+La libraire standard du C inclue une fonction random(), mais sur carte embarquée, nous n'y avons pas accès.
+
+J'ai donc fabriqué une fonction random(), en me basant sur le générateur congruentiel linéaire.
+
+D'après Wikipédia.org, il génère un nombre pseudo-aléatoires dont l'algorithme, crée par Derrick Lehmer, en 1948, produit des nombres aléatoires, basé sur des *congruences* (relation pouvant unir 2 entiers) et une fonction affine.
+
+...
+
+* position en y du tir : non résolu
+
+### c. Affichage du score et du nombre de vie :
+
+On ne peut pas afficher directement le score, contenu dans une variable, à l'écran. 
+
+Ex :
+```x
+serial_putchar('0') != serial_putchar(0x00)
+
+serial_putchar('0') //affiche 0
+
+serial_putchar(0x00) //affiche rien du tout 
+```
+Pour pouvoir afficher le nombre 0, il faut prendre en considération sa valeur hexadécimale correspondant dans la table ASCII :  0x48. 
+
+Dans la table ASCII, nous remarquons que les chiffres de 0 à 9 se succèdent. Il suffit juste d'incrémenter la valeur hexadécimale pour afficher un chiffre de 0 à 9. 
+
+Un simple algorithme permet par la suite de traiter si c'est le chiffre des unités, des centaines, des milliers... (voir "ui.c" dans le projet)
 
 ## 4. Compétences acquises / découvertes / peaufinées 
 
