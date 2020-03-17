@@ -55,7 +55,7 @@ Le joueur dispose de 3 touches pour jouer :
 
 ### a. Gérer le déplacement horizontal des ennemis :
 
-* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : non résolu
+* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : **non résolu**
 
 ### b. Gérer le tir des ennemis :
 
@@ -69,14 +69,14 @@ D'après Wikipédia.org, il génère un nombre pseudo-aléatoires dont l'algorit
 
 ...
 
-* position en y du tir : non résolu
+* position en y du tir : **non résolu**
 
 ### c. Affichage du score et du nombre de vie :
 
 On ne peut pas afficher directement le score, contenu dans une variable, à l'écran. 
 
 Ex :
-```x
+```c
 serial_putchar('0') != serial_putchar(0x00)
 
 serial_putchar('0') //affiche 0
@@ -89,6 +89,9 @@ Dans la table ASCII, nous remarquons que les chiffres de 0 à 9 se succèdent. I
 
 Un simple algorithme permet par la suite de traiter si c'est le chiffre des unités, des centaines, des milliers... (voir "ui.c" dans le projet)
 
-## 4. Compétences acquises / découvertes / peaufinées 
+## 4. Compétences acquises / découvertes / peaufinées :
+
+* Utilisation des pointeurs 
+* Utilisation des structures 
 
 ## Conclusion
