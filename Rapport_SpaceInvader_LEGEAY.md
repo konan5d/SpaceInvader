@@ -159,7 +159,68 @@ Mais, si sur un colonne, on a plus d'ennemis en vie, on annule donc le tir.
 
 ### b. Gérer le déplacement horizontal des ennemis :
 
-* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : **non résolu**
+Lors du déplacement horizontal, j'ai pris comme réference mes ennemis qui se situent sur les bords (gauche et droite).
+
+Lors de l'appel de la fonction ***displayEnemies()***, je vérifie la présence des ennemis sur la colonne :
+- de droite si on va vers la droite
+```c
+if (*directionX == RIGHT)
+	{
+		for (j = ENEMIES_PER_COL; j > 0; j--)
+		{
+			if (j == 1)
+			{
+				enemy_N = 22 - N_max;
+			}
+			else
+			{
+				enemy_N = (j * ENEMIES_PER_LINE - N_max) - 1;
+			}
+
+			if (enemy[enemy_N].life == 0)
+			{
+				enemy_counter -= 1;
+			}
+		}
+
+		if (enemy_counter == 0)
+		{
+			N_max += 1;
+			enemy_counter = 5;
+		}
+	}
+```
+- de gauche si on va vers la gauche 
+```c
+	if (*directionX == LEFT)
+	{
+		for (j = ENEMIES_PER_COL; j > 0; j--)
+		{
+			if (j == 1)
+			{
+				enemy_N = j + N_min;
+			}
+			else
+			{
+				enemy_N = (j - 1) * ENEMIES_PER_LINE + N_min;
+			}
+
+			if (enemy[enemy_N].life == 0)
+			{
+				enemy_counter -= 1;
+			}
+		}
+
+		if (enemy_counter == 1)
+		{
+			N_min += 1;
+			enemy_counter = 5;
+		}
+	}
+```
+
+N_min et N_max permettent aux vaisseaux encore vivants de pouvoir aller jusqu'au bout du terrain de jeu.
+
 
 ### c. Affichage du score et du nombre de vie :
 

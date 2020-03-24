@@ -8,6 +8,9 @@
 #include "ui.h"
 #include "main.h"
 
+static t_character txt_score[] = "SCORE :";
+static	t_character txt_life[] = "NOMBRE DE VIES : ";
+
 /* ### Score ### */
 void displayScore(t_player *player, t_score *score)
 {
@@ -26,7 +29,7 @@ void displayScore(t_player *player, t_score *score)
 	//Affichage des vies
 	vt100_move(1, 24);
 	serial_puts(txt_life);
-	serial_putchar(player.life);
+	serial_putchar(player->life);
 
 }
 
