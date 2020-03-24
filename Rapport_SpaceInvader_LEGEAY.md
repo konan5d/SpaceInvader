@@ -192,7 +192,7 @@ if (*directionX == RIGHT)
 ```
 - de gauche si on va vers la gauche 
 ```c
-	if (*directionX == LEFT)
+if (*directionX == LEFT)
 	{
 		for (j = ENEMIES_PER_COL; j > 0; j--)
 		{
@@ -244,5 +244,14 @@ Un simple algorithme permet par la suite de traiter si c'est le chiffre des unit
 
 * Utilisation des pointeurs 
 * Utilisation des structures 
+* Créer un logiciel complexe
 
 ## Conclusion
+
+Dans l'ensemble, j'ai trouvé le projet très interessant.
+
+La difficulté, quand on réalise un logiciel conséquent, est qu'il faut dès le départ, adopter une bonne manière de programmer, pour assurer le développement , par la suite des différents modules.
+
+Aujourd'hui, je pense que mon programme peut être simplifié et optimisé, mais on peut jouer à Space Invaders !
+
+Quand une partie se termine, le jeu se relance automatiquement.
