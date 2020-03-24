@@ -33,7 +33,8 @@ typedef uint32_t t_baudrate;
 typedef uint8_t t_character;
 typedef uint8_t t_pos;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character new_pos_y;
@@ -41,42 +42,50 @@ typedef struct {
 	uint8_t life;
 } t_ship;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character ship;
-	uint16_t score;
+	uint8_t score;
 	uint8_t life;
 } t_player;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character old_pos_x;
 	t_character old_pos_y;
-	t_character rocket;
-}t_rocket;
+	const t_character rocket;
+} t_rocket;
 
-enum way {
+typedef struct
+{
+	uint8_t d;
+	uint8_t c;
+	uint8_t m;
+} t_score;
+
+enum way
+{
 	LEFT, RIGHT
 };
-enum booleen {
+enum booleen
+{
 	FALSE, TRUE
 };
-
-void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
-		uint8_t nbr_of_line);
 
 void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies);
 
 void displayEnemiesOnPlayground(uint8_t tab_playground[80][24],
 		t_ship *tab_enemies);
 
-uint8_t moveShipLR(t_character *tab_player, uint8_t way, t_pos old_pos);
+uint8_t isEnemyHit(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
 
-void moveRocket(t_rocket *rocket, uint8_t *shoot);
+uint8_t random(uint8_t value, uint8_t a, uint8_t b, uint8_t m);
 
-void isEnemyShoot(t_ship *tab_enemies, t_rocket *rocket, uint8_t *shoot);
+uint8_t random_enemy_rocket(void);
 
 void delay(uint32_t time);
 #endif /* MAIN_H_ */
