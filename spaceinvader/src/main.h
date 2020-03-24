@@ -29,12 +29,12 @@
 #include "serial.h"
 #include "stdint.h"
 
-
 typedef uint32_t t_baudrate;
 typedef uint8_t t_character;
 typedef uint8_t t_pos;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character new_pos_y;
@@ -42,7 +42,8 @@ typedef struct {
 	uint8_t life;
 } t_ship;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character ship;
@@ -50,30 +51,30 @@ typedef struct {
 	uint8_t life;
 } t_player;
 
-typedef struct {
+typedef struct
+{
 	t_character pos_x;
 	t_character pos_y;
 	t_character old_pos_x;
 	t_character old_pos_y;
 	const t_character rocket;
-}t_rocket;
+} t_rocket;
 
-
-typedef struct {
+typedef struct
+{
 	uint8_t d;
 	uint8_t c;
 	uint8_t m;
 } t_score;
 
-
-enum way {
+enum way
+{
 	LEFT, RIGHT
 };
-enum booleen {
+enum booleen
+{
 	FALSE, TRUE
 };
-
-
 
 void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies);
 

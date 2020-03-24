@@ -53,11 +53,7 @@ Le joueur dispose de 3 touches pour jouer :
 
 ## 3. Les 3 plus grandes difficultées rencontrées dans le projet
 
-### a. Gérer le déplacement horizontal des ennemis :
-
-* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : **non résolu**
-
-### b. Gérer le tir des ennemis :
+### a. Gérer le tir des ennemis :
 
 Tout d'abord, il faut générer un nombre, de façon aléatoire, pour générer un missile.
 
@@ -67,9 +63,103 @@ J'ai donc fabriqué une fonction random(), en me basant sur le générateur cong
 
 D'après Wikipédia.org, il génère un nombre pseudo-aléatoires dont l'algorithme, crée par Derrick Lehmer, en 1948, produit des nombres aléatoires, basé sur des *congruences* (relation pouvant unir 2 entiers) et une fonction affine.
 
-...
+La fonction qui génère les nombres aléatoires est la suivante :
 
-* position en y du tir : **non résolu**
+```c
+unsigned char random(uint8_t value, uint8_t a, uint8_t b, uint8_t m) {
+	value = (a * value + b) % m;
+	return value;
+}
+```
+
+Notre générateur doit avoir une période maximale pour être le plus aléatoire possible. La période correspond (d'après openclassroom.com) "à la longueur d'une séquence générée".
+
+Elle est donc maximale si :
+- *m* doit être le plus grand possible
+- *b* doit ếtre très inférieur à *a* et *m*
+- *a* doit être proche de la racine carrée de *m*
+
+Dans mon cas, *m* correspond à l'intervale en X dans lequel se trouve mes ennemis.
+ 
+La position du missile étant générée, il faut maintenant l'afficher.
+
+Sur l'axe horizontal (x), vu que les vaisseaux ennemis se déplacent, il suffit de prendre en compte le delta entre le bord du terrain, et le premier vaisseau (si on va de gauche à droite), et de l'ajouter à la position du missile :
+
+```c
+enemy_rocket.pos_x = rand_pos_x + enemies[1].pos_x;
+```
+
+Sur l'axe vertical (y), il faut prendre en compte la position des vaisseaux ennemis qui sont au front. Le missile ne doit pas être généré par un ennemi qui se trouve derrière un autre vaisseau.
+
+On va donc chercher l'ennemi le premiere ennemi disponible. 
+
+**N.B**: Pendant le développement de cette phase, je me suis rendu compte que je n'avais pas utilisé pour terrain de jeu :
+
+```c
+/* Initialisation du terrain de jeu */
+	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT]={ 0 }; /* 80 x 24 */
+```
+
+J'ai donc utilisé le tableau contenant mes ennemis :
+```c
+t_ship enemies[ENEMIES] = { 0 };
+```
+
+Pour pouvoir accéder à un ennemi N, je prend comme référence le début de chaque ligne :
+
+Ligne | N | N+1 | N + rand_pos_x 
+--------|----|--|---
+1|1|2| ennemi_N
+2|23 = 23 * 1|24 = 23 * **1** + 1 |ennemi_N = 23 * (ligne - 1) + rand_pos_x
+3|46 = 23 * 2|47 = 23 * **2** + 1 |ennemi_N = 23 * (ligne - 1) + rand_pos_x
+4|69 = 23 * 3|70 = 23 * **3** + 1 |ennemi_N = 23 * (ligne - 1) + rand_pos_x
+5|92 = 23 * 4|93 = 23 * **4** + 1 |ennemi_N = 23 * (ligne - 1) + rand_pos_x
+L||93 = 23 * **4** + (N+1) |**ennemi_N = 23 * (L - 1) + rand_pos_x**
+Avec cette méthode, on accède donc aux données de l'ennemi N. 
+
+```c
+for (j = ENEMIES_PER_COL; j > 0; j--)
+{
+
+    if (j == 1)
+	{
+        //Pour ligne = 1
+		enemy_N = j + rand_pos_x;
+	}
+	else
+	{
+        //Pour ligne > 1
+		enemy_N = (j - 1) * ENEMIES_PER_LINE + rand_pos_x;
+	}
+
+	if (enemies[enemy_N].life == 1)
+	{
+        //Si l'ennemi est en vie, je récupère sa positon en y
+	    enemy_rocket.pos_y = enemies[enemy_N].pos_y;
+		break;
+	}
+	else
+	{  
+        //S'il est mort
+		enemy_rocket.pos_y = 0;
+	}
+}
+
+	if (enemy_rocket.pos_y != 0)
+	{
+        //On autorise le tir, s'il y un ennemi en vie sur la colonne  
+    	rocket_enemy = TRUE;
+	}
+
+```
+
+Si l'ennemi est en vie, on peut donc tirer le missile, sinon on passe au suivant. 
+
+Mais, si sur un colonne, on a plus d'ennemis en vie, on annule donc le tir.
+
+### b. Gérer le déplacement horizontal des ennemis :
+
+* Adapter l'intervale de déplacement en fonction des ennemis aux extrémitées : **non résolu**
 
 ### c. Affichage du score et du nombre de vie :
 

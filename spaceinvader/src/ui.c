@@ -9,8 +9,11 @@
 #include "main.h"
 
 /* ### Score ### */
-void displayScore(t_player *player, t_score *score) {
-
+void displayScore(t_player *player, t_score *score)
+{
+	//Affichage du texte score
+	vt100_move(1, 1);
+	serial_puts(txt_score);
 	vt100_move(9, 1);
 	serial_putchar(score->m);
 	vt100_move(10, 1);
@@ -19,16 +22,25 @@ void displayScore(t_player *player, t_score *score) {
 	serial_putchar(score->d);
 	vt100_move(12, 1);
 	serial_putchar('0');
+
+	//Affichage des vies
+	vt100_move(1, 24);
+	serial_puts(txt_life);
+	serial_putchar(player.life);
+
 }
 
-void changeScore(t_player *player, t_score *score) {
+void changeScore(t_player *player, t_score *score)
+{
 	score->d += 2;
-	if (score->d == ':') {
+	if (score->d == ':')
+	{
 		score->d = '0';
 		score->c += 1;
 	}
 
-	if (score->c == ':') {
+	if (score->c == ':')
+	{
 		score->c = '0';
 		score->m += 1;
 	}
