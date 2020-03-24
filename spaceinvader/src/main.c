@@ -50,107 +50,91 @@
  **===========================================================================
  */
 
-volatile uint8_t flag = 0;
-
 int main(void)
 {
 	/* INITIALISATION */
 	/* Initialisation des variables */
 	int i = 0;
 
-	t_character user_input = 0;
-
-	/* Variables : déplacement des vaisseaux ennemies */
-
-	uint8_t dir = RIGHT;
-
-	/* Variables : temps */
-	uint32_t time_player = 30000;
-
-	/* TEST */
-	uint8_t compteur = 0;
-	uint8_t var_shooted = 0;
-
-	/* Variables : texte */
-	t_character txt_score[] = "SCORE :";
-	t_character txt_life[] = "NOMBRE DE VIES : ";
-
-	/* Variables : missiles */
-	uint8_t rocket_player = FALSE;
-	uint8_t rocket_enemy = FALSE;
-	uint8_t rand_pos_x = 2;
-
-	uint8_t j = 0;
-	uint8_t enemy_N = 0;
-
 	/* Initialisation de la liaison série*/
 	serial_init(BAUDRATE);
-
-	/* Initialisation VT100 */
-	vt100_clear_screen();
-
-	/* Déclaration du joueur / des ennemies / du terrain de jeu / missile */
-
-	t_player player =
-	{ PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
-	PLAYER_SCORE, PLAYER_LIFE };
-
-	t_character playgroundPlayer[VT100_SCREEN_WIDTH] =
-	{ 0 };
-	playgroundPlayer[player.pos_x] = player.ship;
-
-	t_ship enemy =
-	{ ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
-	ENEMY_LIFE };
-
-	t_rocket player_rocket =
-	{ 0, 0, 0, 0, '|' };
-
-	/* Missile Ennemi */
-
-	t_rocket enemy_rocket =
-	{ 0, 0, 0, 0, '|' };
-
-	/* Initialisation du terrain de jeu */
-	t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] =
-	{ 0 }; /* 80 x 24 */
-
-	/* Initialisation des ennemies */
-	t_ship enemies[ENEMIES] =
-	{ 0 };
-	initEnemy(enemies, enemy, ENEMIES_PER_LINE, ENEMIES_PER_COL);
-	initPlayground(playground, enemies);
-
-	t_score toto =
-	{ .d = '0', .c = '0', .m = '0' };
-
-	/* Initialisation du joueur */
-	playground[player.pos_x][player.pos_y] = player.ship;
-	vt100_move(player.pos_x, player.pos_y);
-	serial_putchar(playground[player.pos_x][player.pos_y]);
-
-	/* TODO - Add your application code here */
 
 	/* Infinite loop */
 	while (1)
 	{
+		/* INITIALISATION */
+		/* Initialisation des variables */
+		t_character user_input = 0;
+
+		/* Variables : déplacement des vaisseaux ennemies */
+
+		uint8_t dir = RIGHT;
+
+		/* Variables : temps */
+		uint32_t time_player = 30000;
+		uint8_t compteur = 0;
+		uint8_t enemy_hit = 0;
+
+		/* Variables : texte */
+
+		/* Variables : missiles */
+		uint8_t rocket_player = FALSE;
+		uint8_t rocket_enemy = FALSE;
+		uint8_t rand_pos_x = 2;
+
+		/* Initialisation VT100 */
+		vt100_clear_screen();
+
+		/* Déclaration du joueur / des ennemies / du terrain de jeu / missile */
+
+		t_player player =
+		{ PLAYER_POSITION_X, PLAYER_POSITION_Y, PLAYER_SHIP,
+		PLAYER_SCORE, PLAYER_LIFE };
+
+		t_character playgroundPlayer[VT100_SCREEN_WIDTH] =
+		{ 0 };
+		playgroundPlayer[player.pos_x] = player.ship;
+
+		t_ship enemy =
+		{ ENEMY_POSITION_X, ENEMY_POSITION_Y, 0, ENEMY_SHIP,
+		ENEMY_LIFE };
+
+		t_rocket player_rocket =
+		{ 0, 0, 0, 0, '|' };
+
+		/* Missile Ennemi */
+
+		t_rocket enemy_rocket =
+		{ 0, 0, 0, 0, '|' };
+
+		/* Initialisation du terrain de jeu */
+		t_character playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT] =
+		{ 0 }; /* 80 x 24 */
+
+		/* Initialisation des ennemies */
+		t_ship enemies[ENEMIES] =
+		{ 0 };
+		initEnemy(enemies, enemy, ENEMIES_PER_LINE, ENEMIES_PER_COL);
+		initPlayground(playground, enemies);
+
+		t_score player_score =
+		{ .d = '0', .c = '0', .m = '0' };
+
+		/* Initialisation du joueur */
+		playground[player.pos_x][player.pos_y] = player.ship;
+		vt100_move(player.pos_x, player.pos_y);
+		serial_putchar(playground[player.pos_x][player.pos_y]);
+
 		/* Initialisation du jeu */
-		displayScore(&player, &toto);
+		displayScore(&player, &player_score);
 
 		while ((enemies[ENEMIES - 1].new_pos_y != PLAYER_POSITION_Y - 1)
 				|| (player.life == 0))
 		{
-			/* Affichae du :
-			 * - scorez
-			 * - nombre de vies du joueur
-			 */
-
-
 			/* Déplacement du joueur */
-			/* FONCTION : wait_player */
+
 			for (i = 0; i <= time_player; i++)
 			{
-
 				user_input = serial_get_last_char();
 
 				if (((user_input == 'd') || (user_input == 'D'))
@@ -175,84 +159,40 @@ int main(void)
 					vt100_move(player.pos_x, player.pos_y);
 					vt100_clear_line();
 					serial_putchar(playgroundPlayer[player.pos_x]);
-					/* Déplacement des ennemies */
-
-					/* Déplacement des missiles (joueur & ennemies) */
 
 				}
 				else if (((user_input == 'z') || (user_input == 'Z'))
 						&& (rocket_player == FALSE))
 				{
-
-					/* Nothing to do */
 					/* Déplacement des missiles (joueur & ennemies) */
 					player_rocket.pos_x = player.pos_x;
 					player_rocket.pos_y = player.pos_y;
 					rocket_player = TRUE;
 				}
-				else if (((user_input == 'a') || (user_input == 'A')))
-				{
-
-					/* Nothing to do */
-					/* Déplacement des missiles (joueur & ennemies) */
-				}
-
 			}
-
-			compteur++;
 
 			/* Déplacement des missiles */
 			/* Joueur */
 			movePlayerRocket(&player_rocket, &rocket_player); // rocket joueur
-			var_shooted = isEnemyHit(enemies, &player_rocket, &rocket_player);
+
+			enemy_hit = isEnemyHit(enemies, &player_rocket, &rocket_player);
 
 			moveEnemiesRocket(&enemy_rocket, &rocket_enemy);
 
-			/* Déplacement des ennemies */
-			if (var_shooted == 1)
+			if (enemy_hit == 1)
 			{
 				/* Si un ennemi est touché, alors on le fait disparaitre et on incrémente le score */
 				displayEnemiesOnPlayground(playground, enemies);
-				changeScore(&player, &toto);
-				displayScore(&player, &toto);
+				changeScore(&player, &player_score);
+				displayScore(&player, &player_score);
 			}
-			var_shooted = 0;
+			enemy_hit = 0;
 
-			/* Tire d'un missile */
+
+			/* Tire d'un missile ennemi ! */
 			if ((compteur == 10) && (rocket_enemy == FALSE))
 			{
-				rand_pos_x = random_enemy_rocket();
-				enemy_rocket.pos_x = rand_pos_x + enemies[1].pos_x;
-
-				/* Position en Y du missile */
-
-				for (j = ENEMIES_PER_COL; j > 0; j--)
-				{
-					if (j == 1)
-					{
-						enemy_N = j + rand_pos_x;
-					}
-					else
-					{
-						enemy_N = (j - 1) * ENEMIES_PER_LINE + rand_pos_x;
-					}
-
-					if (enemies[enemy_N].life == 1)
-					{
-						enemy_rocket.pos_y = enemies[enemy_N].pos_y;
-						break;
-					}
-					else
-					{
-						enemy_rocket.pos_y = 0;
-					}
-				}
-
-				if (enemy_rocket.pos_y != 0)
-				{
-					rocket_enemy = TRUE;
-				}
-
+				enemyShootRocket(&enemy_rocket, enemies, &rocket_enemy, &rand_pos_x);
 			}
 
 			/* Déplacement des ennemis */
@@ -263,13 +203,16 @@ int main(void)
 				compteur = 0;
 			}
 
+			compteur++;
 		}
-		/* GAME OVER */
+		/* GAME OVER : Game restarting*/
 	}
 
 }
 
-void initPlayground(uint8_t tab_playground[80][24], t_ship *tab_enemies)
+void initPlayground(
+		uint8_t tab_playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT],
+		t_ship *tab_enemies)
 {
 	uint8_t j = 0;
 	for (j = 0; j <= ENEMIES - 1; j++)
@@ -309,52 +252,52 @@ void initEnemy(t_ship *tab_enemies, t_ship enemy, uint8_t enemy_in_line,
 	}
 }
 
-void displayEnemiesOnPlayground(uint8_t tab_playground[80][24],
+void displayEnemiesOnPlayground(
+		uint8_t tab_playground[VT100_SCREEN_WIDTH][VT100_SCREEN_HEIGHT],
 		t_ship *tab_enemies)
 {
-	/* Déplacement en x de l'ennemi n */
-	/* Variables */
-
-	/* Quand on arrive au bout de la ligne, déplacement en y de l'ennemi n */
-	/* Remplissage du terrain de jeu avec les vaisseaux */
 	uint8_t j = 0;
 	uint8_t ligne = 0;
 	for (j = 0; j <= ENEMIES - 1; j++)
 	{
-		/* Déplacement du vaisseau */
-		tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
-				tab_enemies[j].ship;
-
-		/* Effacement de la ligne */
-		if ((ligne != tab_enemies[j].pos_y)
-				&& ((tab_enemies[j].pos_y) == (tab_enemies[j].new_pos_y)))
+		if (tab_enemies[j].life == 1) //On vérifie que l'ennemi est en vie
 		{
+			/* Déplacement du vaisseau */
+			tab_playground[tab_enemies[j].pos_x][tab_enemies[j].pos_y] =
+					tab_enemies[j].ship;
 
-			/* On passe au vaisseau suivant */
+			/* Effacement de la ligne */
+			if ((ligne != tab_enemies[j].pos_y)
+					&& ((tab_enemies[j].pos_y) == (tab_enemies[j].new_pos_y)))
+			{ // -> on a pas changé de ligne
+
+				/* On passe au vaisseau suivant */
+				vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
+				vt100_clear_line();
+
+				ligne = tab_enemies[j].pos_y;
+
+			}
+			else if ((ligne != tab_enemies[j].pos_y)
+					&& ((tab_enemies[j].pos_y) != (tab_enemies[j].new_pos_y)))
+			{
+				/* On efface la ligne précédente avant de passer à la suivante */
+				vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
+				vt100_clear_line();
+				/* On passe à la ligne suivante */
+				vt100_move(tab_enemies[j].pos_x, tab_enemies[j].new_pos_y);
+
+				/* On stock la nouvelle position */
+				tab_enemies[j].pos_y = tab_enemies[j].new_pos_y;
+				ligne = tab_enemies[j].pos_y;
+			}
+
 			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
-			vt100_clear_line();
-
-			ligne = tab_enemies[j].pos_y;
-
-		}
-		else if ((ligne != tab_enemies[j].pos_y)
-				&& ((tab_enemies[j].pos_y) != (tab_enemies[j].new_pos_y)))
-		{
-			/* On efface la ligne précédente avant de passer à la suivante */
-			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
-			vt100_clear_line();
-			/* On passe à la ligne suivante */
-			vt100_move(tab_enemies[j].pos_x, tab_enemies[j].new_pos_y);
-
-			/* On stock la nouvelle position */
-			tab_enemies[j].pos_y = tab_enemies[j].new_pos_y;
+			serial_putchar(tab_enemies[j].ship);
 			ligne = tab_enemies[j].pos_y;
 		}
-
-		vt100_move(tab_enemies[j].pos_x, tab_enemies[j].pos_y);
-		serial_putchar(tab_enemies[j].ship);
-		ligne = tab_enemies[j].pos_y;
 	}
+
 }
 
 uint8_t random(uint8_t value, uint8_t a, uint8_t b, uint8_t m)
@@ -363,11 +306,49 @@ uint8_t random(uint8_t value, uint8_t a, uint8_t b, uint8_t m)
 	return value;
 }
 
-uint8_t random_enemy_rocket(void)
+uint8_t randomEnemyRocket(void)
 {
 	static uint8_t value = 1;
 	value = random(value, 7, 1, 45);
 	return value;
+}
+
+void enemyShootRocket(t_rocket *enemy_rocket, t_ship *tab_enemies, uint8_t *rocket_enemy, uint8_t *random_pos_x )
+{
+	uint8_t j = 0;
+	uint8_t enemy_N = 0;
+
+	*random_pos_x = randomEnemyRocket();
+	enemy_rocket->pos_x = *random_pos_x + tab_enemies[1].pos_x;
+
+	/* Position en Y du missile */
+
+	for (j = ENEMIES_PER_COL; j > 0; j--)
+	{
+		if (j == 1)
+		{
+			enemy_N = j + *random_pos_x;
+		}
+		else
+		{
+			enemy_N = (j - 1) * ENEMIES_PER_LINE + *random_pos_x;
+		}
+
+		if (tab_enemies[enemy_N].life == 1)
+		{
+			enemy_rocket->pos_y = tab_enemies[enemy_N].pos_y;
+			break;
+		}
+		else
+		{
+			enemy_rocket->pos_y = 0;
+		}
+	}
+
+	if (enemy_rocket->pos_y != 0)
+	{
+		*rocket_enemy = TRUE;
+	}
 }
 
 void delay(uint32_t time)

@@ -87,5 +87,7 @@ uint8_t random(uint8_t value, uint8_t a, uint8_t b, uint8_t m);
 
 uint8_t random_enemy_rocket(void);
 
+void enemyShootRocket(t_rocket *enemy_rocket, t_ship *tab_enemies, uint8_t *rocket_enemy, uint8_t *random_pos_x );
+
 void delay(uint32_t time);
 #endif /* MAIN_H_ */

@@ -12137,3 +12137,1036 @@ Generate listing file
 Output sent to: spaceinvader.list
 Generate listing file done
 Generate build reports done
+15:45:10 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/ui.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/ui.o 
+../src/ui.c: In function 'displayScore':
+../src/ui.c:16:14: error: 'txt_score' undeclared (first use in this function)
+  serial_puts(txt_score);
+              ^~~~~~~~~
+../src/ui.c:16:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/ui.c:28:14: error: 'txt_life' undeclared (first use in this function)
+  serial_puts(txt_life);
+              ^~~~~~~~
+../src/ui.c:29:23: error: 'player' is a pointer; did you mean to use '->'?
+  serial_putchar(player.life);
+                       ^
+                       ->
+15:45:44 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/ui.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/ui.o 
+../src/ui.c: In function 'displayScore':
+../src/ui.c:19:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_score);
+              ^~~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+../src/ui.c:31:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_life);
+              ^~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+../src/ui.c:32:23: error: 'player' is a pointer; did you mean to use '->'?
+  serial_putchar(player.life);
+                       ^
+                       ->
+15:45:53 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/ui.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/ui.o 
+../src/ui.c: In function 'displayScore':
+../src/ui.c:19:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_score);
+              ^~~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+../src/ui.c:31:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_life);
+              ^~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:69:8: error: 'enemies' undeclared (first use in this function)
+    if (enemies[enemy_N].life == 0)
+        ^~~~~~~
+../src/enemy.c:69:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/enemy.c:44:10: warning: variable 'enemy_N' set but not used [-Wunused-but-set-variable]
+  uint8_t enemy_N = 0;
+          ^~~~~~~
+15:45:57 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:69:8: error: 'enemies' undeclared (first use in this function)
+    if (enemies[enemy_N].life == 0)
+        ^~~~~~~
+../src/enemy.c:69:8: note: each undeclared identifier is reported only once for each function it appears in
+../src/enemy.c:44:10: warning: variable 'enemy_N' set but not used [-Wunused-but-set-variable]
+  uint8_t enemy_N = 0;
+          ^~~~~~~
+15:46:51 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+15:50:14 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+15:55:27 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+15:59:15 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:00:19 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:07:31 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7176	     56	   1060	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:14:40 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7184	     56	   1060	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:14:47 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7184	     56	   1060	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:15:17 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:111:16: error: invalid type argument of unary '*' (have 'int')
+  pos_x_enemy = *enemy[0 + min].pos_x;
+                ^~~~~~~~~~~~~~~~~~~~~
+16:15:29 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7184	     56	   1060	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:18:43 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7192	     56	   1060	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:20:50 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:112:14: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  pos_x_enemy = &enemy[0 + min].pos_x;
+              ^
+../src/enemy.c:113:19: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  pos_x_enemy_test = &enemy[0].pos_x;
+                   ^
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1060	   8304	   2070	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:21:06 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7192	     56	   1060	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:23:24 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7200	     56	   1060	   8316	   207c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:37:01 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:112:14: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  pos_x_enemy = &enemy[0 + min].pos_x;
+              ^
+../src/enemy.c:113:19: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  pos_x_enemy_test = &enemy[0].pos_x;
+                   ^
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1060	   8304	   2070	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+16:37:46 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7192	     56	   1060	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+Info: Nothing to build for spaceinvader
+16:43:13 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:51:17: warning: unused variable 'min' [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+At top level:
+../src/enemy.c:51:17: warning: 'min' defined but not used [-Wunused-variable]
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1056	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:44:07 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:51:17: warning: unused variable 'min' [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+../src/enemy.c:50:17: warning: unused variable 'max' [-Wunused-variable]
+  static uint8_t max = 0;
+                 ^~~
+At top level:
+../src/enemy.c:50:17: warning: 'max' defined but not used [-Wunused-variable]
+../src/enemy.c:51:17: warning: 'min' defined but not used [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7184	     56	   1056	   8296	   2068	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+16:47:42 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:51:17: warning: unused variable 'min' [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+../src/enemy.c:50:17: warning: unused variable 'max' [-Wunused-variable]
+  static uint8_t max = 0;
+                 ^~~
+At top level:
+../src/enemy.c:50:17: warning: 'max' defined but not used [-Wunused-variable]
+../src/enemy.c:51:17: warning: 'min' defined but not used [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7184	     56	   1056	   8296	   2068	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+17:00:50 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:54:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:51:17: warning: unused variable 'min' [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+../src/enemy.c:50:17: warning: unused variable 'max' [-Wunused-variable]
+  static uint8_t max = 0;
+                 ^~~
+At top level:
+../src/enemy.c:50:17: warning: 'max' defined but not used [-Wunused-variable]
+../src/enemy.c:51:17: warning: 'min' defined but not used [-Wunused-variable]
+  static uint8_t min = 0;
+                 ^~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7220	     56	   1056	   8332	   208c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:01:05 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7220	     56	   1056	   8332	   208c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+17:03:53 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:132:16: error: invalid type argument of '->' (have 't_ship {aka struct <anonymous>}')
+    if (enemy[i]->life == 1)
+                ^~
+../src/enemy.c:51:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+17:03:56 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7220	     56	   1056	   8332	   208c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+17:20:01 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: variable 'pos_x_enemy_test' set but not used [-Wunused-but-set-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7204	     56	   1056	   8316	   207c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:24:45 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7196	     56	   1056	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+17:28:53 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7196	     56	   1056	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:33:55 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7196	     56	   1056	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:43:39 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7196	     56	   1056	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:50:55 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7192	     56	   1056	   8304	   2070	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+17:56:09 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7192	     56	   1056	   8304	   2070	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:02:21 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+../src/enemy.c: In function 'displayEnemies':
+../src/enemy.c:51:14: warning: unused variable 'pos_x_enemy_test' [-Wunused-variable]
+  t_character pos_x_enemy_test = 0;
+              ^~~~~~~~~~~~~~~~
+../src/enemy.c:50:14: warning: unused variable 'pos_x_enemy' [-Wunused-variable]
+  t_character pos_x_enemy = 0;
+              ^~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7196	     56	   1056	   8308	   2074	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:40:45 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7180	     56	   1056	   8292	   2064	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:55:59 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:85:11: warning: unused variable 'rand_pos_x' [-Wunused-variable]
+   uint8_t rand_pos_x = 2;
+           ^~~~~~~~~~
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:332:2: error: 'rand_pos_x' undeclared (first use in this function)
+  rand_pos_x = randomEnemyRocket();
+  ^~~~~~~~~~
+../src/main.c:332:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:333:51: error: invalid type argument of '->' (have 't_ship {aka struct <anonymous>}')
+  enemy_rocket->pos_x = rand_pos_x + tab_enemies[1]->pos_x;
+                                                   ^~
+../src/main.c:348:27: error: invalid type argument of '->' (have 't_ship {aka struct <anonymous>}')
+   if (tab_enemies[enemy_N]->life == 1)
+                           ^~
+../src/main.c:350:16: error: 'enemy_rocket' is a pointer; did you mean to use '->'?
+    enemy_rocket.pos_y = tab_enemies[enemy_N]->pos_y;
+                ^
+                ->
+../src/main.c:350:45: error: invalid type argument of '->' (have 't_ship {aka struct <anonymous>}')
+    enemy_rocket.pos_y = tab_enemies[enemy_N]->pos_y;
+                                             ^~
+../src/main.c:359:18: error: 'enemy_rocket' is a pointer; did you mean to use '->'?
+  if (enemy_rocket.pos_y != 0)
+                  ^
+                  ->
+../src/main.c:361:3: error: 'rocket_enemy' undeclared (first use in this function)
+   rocket_enemy = TRUE;
+   ^~~~~~~~~~~~
+18:56:17 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/ui.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/ui.o 
+../src/ui.c: In function 'displayScore':
+../src/ui.c:19:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_score);
+              ^~~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+../src/ui.c:31:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_life);
+              ^~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:85:11: warning: unused variable 'rand_pos_x' [-Wunused-variable]
+   uint8_t rand_pos_x = 2;
+           ^~~~~~~~~~
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:332:2: error: 'rand_pos_x' undeclared (first use in this function)
+  rand_pos_x = randomEnemyRocket();
+  ^~~~~~~~~~
+../src/main.c:332:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:350:16: error: 'enemy_rocket' is a pointer; did you mean to use '->'?
+    enemy_rocket.pos_y = tab_enemies[enemy_N].pos_y;
+                ^
+                ->
+../src/main.c:359:18: error: 'enemy_rocket' is a pointer; did you mean to use '->'?
+  if (enemy_rocket.pos_y != 0)
+                  ^
+                  ->
+../src/main.c:361:3: error: 'rocket_enemy' undeclared (first use in this function)
+   rocket_enemy = TRUE;
+   ^~~~~~~~~~~~
+18:56:28 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:85:11: warning: unused variable 'rand_pos_x' [-Wunused-variable]
+   uint8_t rand_pos_x = 2;
+           ^~~~~~~~~~
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:332:2: error: 'rand_pos_x' undeclared (first use in this function)
+  rand_pos_x = randomEnemyRocket();
+  ^~~~~~~~~~
+../src/main.c:332:2: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:361:3: error: 'rocket_enemy' undeclared (first use in this function)
+   rocket_enemy = TRUE;
+   ^~~~~~~~~~~~
+18:57:03 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:85:11: warning: unused variable 'rand_pos_x' [-Wunused-variable]
+   uint8_t rand_pos_x = 2;
+           ^~~~~~~~~~
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:332:2: error: 'rand_pos_x' undeclared (first use in this function)
+  rand_pos_x = randomEnemyRocket();
+  ^~~~~~~~~~
+../src/main.c:332:2: note: each undeclared identifier is reported only once for each function it appears in
+18:57:37 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6860	     56	   1056	   7972	   1f24	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:58:44 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:331:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  random_pos_x = randomEnemyRocket();
+               ^
+../src/main.c:332:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  enemy_rocket->pos_x = random_pos_x + tab_enemies[1].pos_x;
+                      ^
+../src/main.c:340:18: error: 'rand_pos_x' undeclared (first use in this function)
+    enemy_N = j + rand_pos_x;
+                  ^~~~~~~~~~
+../src/main.c:340:18: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:360:16: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   rocket_enemy = TRUE;
+                ^
+18:58:47 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:331:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  random_pos_x = randomEnemyRocket();
+               ^
+../src/main.c:332:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  enemy_rocket->pos_x = random_pos_x + tab_enemies[1].pos_x;
+                      ^
+../src/main.c:340:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = j + random_pos_x;
+            ^
+../src/main.c:344:43: error: 'rand_pos_x' undeclared (first use in this function)
+    enemy_N = (j - 1) * ENEMIES_PER_LINE + rand_pos_x;
+                                           ^~~~~~~~~~
+../src/main.c:344:43: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:360:16: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   rocket_enemy = TRUE;
+                ^
+18:58:50 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:331:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  random_pos_x = randomEnemyRocket();
+               ^
+../src/main.c:332:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  enemy_rocket->pos_x = random_pos_x + tab_enemies[1].pos_x;
+                      ^
+../src/main.c:340:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = j + random_pos_x;
+            ^
+../src/main.c:344:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = (j - 1) * ENEMIES_PER_LINE + random_pos_x;
+            ^
+../src/main.c:360:16: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   rocket_enemy = TRUE;
+                ^
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6860	     56	   1056	   7972	   1f24	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:58:58 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:331:15: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+  random_pos_x = randomEnemyRocket();
+               ^
+../src/main.c:332:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  enemy_rocket->pos_x = random_pos_x + tab_enemies[1].pos_x;
+                      ^
+../src/main.c:340:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = j + random_pos_x;
+            ^
+../src/main.c:344:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = (j - 1) * ENEMIES_PER_LINE + random_pos_x;
+            ^
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6860	     56	   1056	   7972	   1f24	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:59:10 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'enemyShootRocket':
+../src/main.c:332:22: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+  enemy_rocket->pos_x = random_pos_x + tab_enemies[1].pos_x;
+                      ^
+../src/main.c:340:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = j + random_pos_x;
+            ^
+../src/main.c:344:12: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+    enemy_N = (j - 1) * ENEMIES_PER_LINE + random_pos_x;
+            ^
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6860	     56	   1056	   7972	   1f24	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+18:59:23 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6860	     56	   1056	   7972	   1f24	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+19:01:04 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:203:5: warning: implicit declaration of function 'enemyShootRocket' [-Wimplicit-function-declaration]
+     enemyShootRocket(&enemy_rocket, enemies, &rand_pos_x, )
+     ^~~~~~~~~~~~~~~~
+../src/main.c:203:59: error: expected expression before ')' token
+     enemyShootRocket(&enemy_rocket, enemies, &rand_pos_x, )
+                                                           ^
+../src/main.c: At top level:
+../src/main.c:327:6: warning: conflicting types for 'enemyShootRocket'
+ void enemyShootRocket(t_rocket *enemy_rocket, t_ship *tab_enemies, uint8_t *rocket_enemy, uint8_t *random_pos_x )
+      ^~~~~~~~~~~~~~~~
+../src/main.c:203:5: note: previous implicit declaration of 'enemyShootRocket' was here
+     enemyShootRocket(&enemy_rocket, enemies, &rand_pos_x, )
+     ^~~~~~~~~~~~~~~~
+19:01:42 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+../src/main.c: In function 'main':
+../src/main.c:203:5: warning: implicit declaration of function 'enemyShootRocket' [-Wimplicit-function-declaration]
+     enemyShootRocket(&enemy_rocket, enemies, &rocket_enemy, &rand_pos_x);
+     ^~~~~~~~~~~~~~~~
+../src/main.c: At top level:
+../src/main.c:327:6: warning: conflicting types for 'enemyShootRocket'
+ void enemyShootRocket(t_rocket *enemy_rocket, t_ship *tab_enemies, uint8_t *rocket_enemy, uint8_t *random_pos_x )
+      ^~~~~~~~~~~~~~~~
+../src/main.c:203:5: note: previous implicit declaration of 'enemyShootRocket' was here
+     enemyShootRocket(&enemy_rocket, enemies, &rocket_enemy, &rand_pos_x);
+     ^~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1056	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+19:02:00 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/ui.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/ui.o 
+../src/ui.c: In function 'displayScore':
+../src/ui.c:19:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_score);
+              ^~~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+../src/ui.c:31:14: warning: pointer targets in passing argument 1 of 'serial_puts' differ in signedness [-Wpointer-sign]
+  serial_puts(txt_life);
+              ^~~~~~~~
+In file included from ../src/main.h:29:0,
+                 from ../src/ui.h:11,
+                 from ../src/ui.c:8:
+../src/serial.h:8:6: note: expected 'const volatile char *' but argument is of type 't_character * {aka unsigned char *}'
+ void serial_puts(const volatile char *s);
+      ^~~~~~~~~~~
+arm-atollic-eabi-gcc -c ../src/enemy.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/enemy.o 
+arm-atollic-eabi-gcc -c ../src/player.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/player.o 
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1056	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
+19:09:13 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1056	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+19:13:07 **** Incremental Build of configuration Debug for project spaceinvader ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ../src/main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F42_43xxx -DUSE_STDPERIPH_DRIVER -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/ST/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src/main.o 
+arm-atollic-eabi-gcc -o spaceinvader.elf Libraries/STM32F4xx_StdPeriph_Driver/src/misc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_adc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_can.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_aes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_des.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_cryp_tdes.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dac.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dbgmcu.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dcmi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_flash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_gpio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_sha1.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_i2c.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_iwdg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_pwr.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rcc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rtc.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sai.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_sdio.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_spi.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_tim.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_usart.o Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.o src/enemy.o src/main.o src/player.o src/serial.o src/startup_stm32f429x.o src/stm32f4xx_it.o src/system_stm32f4xx.o src/tiny_printf.o src/ui.o src/vt100.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=spaceinvader.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+/opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/ide/jre/bin/java -jar /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.3.0/Tools/arm-atollic-reports.jar sizeinfo list spaceinvader.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7188	     56	   1056	   8300	   206c	spaceinvader.elf
+Print size information done
+Generate listing file
+Output sent to: spaceinvader.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for spaceinvader
